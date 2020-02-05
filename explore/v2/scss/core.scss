@@ -1,0 +1,3094 @@
+/* 全局变量 */
+$themeRed: #ED2D2E;
+$themeGray: #252438;
+$themeBlack: #100F25;
+$loginHead: #15132f;
+$loginHeadColor: #ce2728;
+
+/* 字体设置函数 */
+@mixin fonts ($issize, $iscolor) {
+  font-size: $issize;
+  color: $iscolor;
+}
+@mixin boxs (){
+  box-sizing: border-box;
+}
+
+/* 活动详情路由样式 */
+.activityInfo{
+  width: 100%;
+  height: 100%;
+  .act-bg{
+    width: 100%;
+    height: 100%;
+    background: url('../img/jd/huodongxiangqing@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+  }
+}
+
+/* 地点寻宝路由样式 */
+.mapPunchCard{
+  .map-bg{
+    width: 100%;
+    height: 100%;
+    background: url('../img/jd/ditu@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+  }
+  .do{
+    width: 100%;
+    height: 125px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    ul{
+      padding: 0 25px;
+      height: 125px;
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      li{
+        float: left;
+        text-align: center;
+        -webkit-flex: 1;
+        @include boxs();
+        p{
+          @include fonts(12px, #666);
+        }
+      }
+    }
+  }
+  #dakashibai{
+    width: 100%;
+    height: 210px;
+    background: url('../img/jd/dakashibai@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+  }
+  #zaicidaka{
+    width: 100%;
+    height: 210px;
+    background: url('../img/jd/zaicidaka@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    .link{
+      width: 80%;
+      position: absolute;
+      display: block;
+      z-index: 12;
+      bottom: 35%;
+      left: 0;
+      margin-left: 10%;
+      height: 2.5rem;
+    }
+    .sure{
+      width: 50%;
+      position: absolute;
+      z-index: 12;
+      bottom: 13%;
+      left: 0;
+      margin-left: 25%;
+      height: 1rem;
+    }
+  }
+  #dakachenggong{
+    width: 100%;
+    height: 310px;
+    background: url('../img/jd/dakachengg@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    .link{
+      width: 80%;
+      position: absolute;
+      display: block;
+      z-index: 12;
+      bottom: 23%;
+      left: 0;
+      margin-left: 10%;
+      height: 2.5rem;
+    }
+    .sure{
+      width: 50%;
+      position: absolute;
+      z-index: 12;
+      bottom: 9%;
+      left: 0;
+      margin-left: 25%;
+      height: 1rem;
+    }
+  }
+}
+
+/* 创建新时光路由样式 */
+.createTimeLine{
+  .post_timeline{
+    padding: 15px 15px 0 15px;
+    width: 100%;
+    height: 200px;
+    border: 0;
+    resize: none;
+    margin-bottom: 15px;
+    @include fonts(15px, #333);
+    @include boxs();
+  }
+  .upload{
+    border: 1px dashed #666;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 92px;
+    height: 92px;
+    margin-left: 15px;
+    .transverse{
+      @include boxs();
+      width: 70%;
+      height: 70%;
+      border: 0;
+      border-top: 1px dashed #666;
+      position: absolute;
+      left: 15%;
+      top: 50%;
+    }
+    .vertical{
+      @include boxs();
+      width: 70%;
+      height: 70%;
+      border: 0;
+      border-top: 1px dashed #666;
+      position: absolute;
+      right: 50%;
+      top: 15%;
+      transform: rotate(90deg);
+    }
+    .timeFile{
+      @include boxs();
+      width: 94px;
+      height: 94px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      opacity: 0;
+    }
+  }
+  .upload-preview{
+    width: 94px;
+    height: 94px;
+    margin-left: 15px;
+    img{
+      display: block;
+    }
+  }
+  .show{
+    padding: 30px 15px;
+    .is_time{
+      float: left;
+      border: 1px solid #ccc;
+      padding: 0 10px;
+      border-radius: 4px;
+      max-width: 42%;
+      height: 19px;
+      line-height: 19px;
+      overflow: hidden;
+      @include fonts(12px, #666);
+    }
+    .is_address{
+      @extend .is_time;
+      float: right;
+    }
+  }
+  .btn{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px auto auto auto;
+    @include fonts(14px, #fff);
+  }
+}
+
+/* 时空地图路由样式 */
+.timelineMap{
+  #containerTimeline{
+    .amap-icon img{
+      border-radius: 50%;
+    }
+  }
+  .pos-create{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    background: url('../img/jd/xinjian@2x.png') no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+  }
+  .timelineModal{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    display: none;
+    .card{
+      width: 80%;
+      height: 440px;
+      background-color: #fff;
+      margin-left: 10%;
+      margin-top: 16%;
+      border-radius: 6px;
+      overflow: auto;
+      .top{
+        padding: 20px 15px;
+        background-color: #3b008d;
+        border-radius: 6px 6px 0 0;
+        position: relative;
+        .text-box{
+          margin-left: 15px;
+          .nickName{
+            @include fonts(15px, #fff);
+          }
+          .createTime{
+            @extend .nickName;
+          }
+        }
+      }
+      .center-content{
+        padding: 15px;
+        p{
+          @include fonts(15px, #333);
+          margin-bottom: 15px;
+        }
+      }
+    }
+    #close{
+      margin-top: calc(16% - 25px);
+    }
+  }
+}
+
+/* 抽奖路由样式 */
+.lucky{
+  background: url('../img/jd/choujiangditu@2x.png');
+  background-size: 100% 100%;
+  background-position: center center;
+  .turn{
+    background: url('../img/jd/zhuanpan@2x-2.png') no-repeat center center;
+    background-size: 100% 100%;
+    width: 9rem;
+    height: 9rem;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    .needle{
+      width: 4rem;
+      position: absolute;
+      left: 2.5rem;
+      top: 2.5rem;
+      transition: all 1s linear;
+      transform-origin: 50% 50%;
+      transform: rotate(0deg);
+    }
+    .random{
+      width: 2rem;
+      position: absolute;
+      left: 3.5rem;
+      top: 3.5rem;
+      z-index: 9;
+    }
+  }
+}
+
+/* 京东西北畅饮季路由样式 */
+.jdActivity{
+  background-color: #2a0054;
+  .top{
+    position: relative;
+    img{
+      display: block;
+    }
+    .have_num{
+      width: 80%;
+      height: 45px;
+      line-height: 45px;
+      background-color: #fff;
+      background-size: 100% 100%;
+      background-position: center center;
+      border-radius: 33px;
+      @include fonts(14px, #3199ff);
+      position: absolute;
+      left: 10%;
+      top: calc(42% + 70px);
+    }
+    .share_info{
+      @include fonts(12px, #fff);
+      width: 80%;
+      position: absolute;
+      left: 10%;
+      top: calc(42% + 120px);
+      text-decoration: underline;
+    }
+    .act_info{
+      width: 32%;
+      height: 40px;
+      line-height: 40px;
+      background-color: #3199ff;
+      background-size: 100% 100%;
+      background-position: center center;
+      border-radius: 25px;
+      @include fonts(16px, #fff);
+      position: absolute;
+      left: 35%;
+      top: calc(42% + 150px);
+    }
+  }
+  .content{
+    .common{
+      padding: 15px;
+      margin: 15px 0;
+      background-color: #3b008d;
+    }
+    .task_wrap{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+      }
+      .icons{
+        line-height: 50px;
+        margin-top: 16px;
+        .icon-map{
+          width: 50px;
+          height: 50px;
+          display: inline-block;
+          background: url('../img/jd/maps.png') no-repeat;
+          background-size: 100% 100%;
+          background-position: center center;
+          float: left;
+        }
+        .doc{
+          float: left;
+          margin-left: 16px;
+          @include fonts(14px, #00e5ac);
+        }
+        .clickLucky{
+          float: right;
+          width: 70px;
+          height: 24px;
+          line-height: 24px;
+          background-color: #0E80E8;
+          @include fonts(14px, #fff);
+          border-radius: 20px;
+          margin-top: 13px;
+        }
+      }
+    }
+    .lucky-box{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+      }
+      .icons{
+        line-height: 50px;
+        margin-top: 16px;
+        .icon{
+          float: left;
+          width: 50px;
+          height: 50px;
+          background: url('../img/jd/xingyunzhuanpan@2x.png') no-repeat;
+          background-size: 100% 100%;
+          background-position: center center;
+        }
+        .luck-name{
+          @include fonts(14px, #00e5ac);
+          float: left;
+          line-height: 50px;
+          margin-left: 16px;
+        }
+        .clickLucky{
+          float: right;
+          width: 70px;
+          height: 24px;
+          line-height: 24px;
+          background-color: #0E80E8;
+          @include fonts(14px, #fff);
+          border-radius: 20px;
+          margin-top: 13px;
+        }
+        .clickLuckyCode{
+          float: right;
+          max-width: 60%;
+          overflow: hidden;
+          height: 24px;
+          display: block;
+          line-height: 24px;
+          @include fonts(14px, #f9da47);
+          border-radius: 20px;
+          margin-top: 13px;
+        }
+      }
+    }
+    .timeline{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+      }
+      .icons{
+        line-height: 50px;
+        margin-top: 16px;
+        .icon{
+          float: left;
+          width: 50px;
+          height: 50px;
+          background: url('../img/jd/didianxunbaoicon@2x-2.png') no-repeat;
+          background-size: 100% 100%;
+          background-position: center center;
+        }
+        .luck-name{
+          @include fonts(14px, #00e5ac);
+          float: left;
+          line-height: 50px;
+          margin-left: 16px;
+        }
+        .clickLucky{
+          float: right;
+          width: 70px;
+          height: 24px;
+          line-height: 24px;
+          background-color: #0E80E8;
+          @include fonts(14px, #fff);
+          border-radius: 20px;
+          margin-top: 13px;
+        }
+      }
+    }
+    .exchange{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+      }
+      .need_wrap{
+        margin-top: 16px;
+        .leftdoc{
+          @include fonts(14px, #1fe4d4);
+          float: left;
+        }
+        .clickbtn{
+          float: right;
+          width: 70px;
+          height: 24px;
+          line-height: 24px;
+          background-color: #0E80E8;
+          @include fonts(14px, #fff);
+          border-radius: 20px;
+          margin-top: 13px;
+        }
+      }
+    }
+    .exchange2{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+      }
+      .need_wrap{
+        margin-top: 16px;
+        .leftdoc{
+          @include fonts(14px, #1fe4d4);
+          float: left;
+        }
+        .clickbtn{
+          float: right;
+          width: 70px;
+          height: 24px;
+          line-height: 24px;
+          @include fonts(14px, #f9da47);
+          border-radius: 20px;
+          margin-top: -1px;
+        }
+      }
+    }
+    .exchange-over{
+      @extend .common;
+      padding: 30px 15px;
+      .cen{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        img{
+        }
+        span{
+          @include fonts(14px, #f9da47);
+          margin-left: 16px;
+        }
+      }
+    }
+    .live{
+      @extend .common;
+      .doc{
+        @include fonts(14px, #f9da47);
+        margin-bottom: 10px;
+      }
+      #activitybox{
+        overflow: hidden;
+        ul{
+          li{
+            margin: 10px 0;
+            .doc{
+              @include fonts(14px, #1ee6c7);
+              float: right;
+              width: calc(100% - 60px);
+              box-sizing: border-box;
+              margin-left: 10px;
+              line-height: 50px;
+              border-bottom: 1px solid #4b3dc9;
+            }
+          }
+        }
+      }
+    }
+    .cooperation{
+      @extend .common;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      .doc{
+        @include fonts(14px, #f9da47);
+        margin-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+    .popUp{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      padding: 26% 10% 0 10%;
+      .content{
+        background-color: #fff;
+        width: 80%;
+        border-radius: 10px;
+        ul{
+          li{
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            height: 1.334rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.334rem;
+            text-align: center;
+            &:nth-child(1){
+              background: #f5f5f5;
+              text-align: center;
+              font-size: 0.45rem;
+            }
+            &:nth-child(2){
+              span{
+                margin: 0 0.2rem;
+                font-size: 0.4rem;
+              }
+              div{
+                width: 5.5rem;
+                display: inline-block;
+                margin-right: 0.5rem;
+                border: 1px solid #cccccc;
+                text-align: left;
+                input{
+                  margin-left: 0.2rem;
+                  width: 3.65rem;
+                  font-size: 0.35rem;
+                }
+              }
+            }
+            &:nth-child(3){
+              margin-bottom: 0;
+              span{
+                margin: 0 0.2rem;
+                font-size: 0.4rem;
+              }
+              div{
+                width: 5.5rem;
+                display: inline-block;
+                margin-right: 0.5rem;
+                border: 1px solid #cccccc;
+                text-align: left;
+                input{
+                  margin-left: 0.2rem;
+                  width: 3.65rem;
+                  font-size: 0.35rem;
+                }
+                span{
+                  padding: 0 0.2rem;
+                  border-left: 1px solid #cccccc;
+                  color: #0e80e8;
+                }
+              }
+            }
+            .hint{
+              color: red;
+            }
+            .binds{
+              width: 5.3rem;
+              height: 1.2rem;
+              line-height: 1.2rem;
+              margin: 0 auto;
+              background: white;
+              border: 1px solid #0e80e8;
+              border-radius: 1.2rem;
+              font-size: 0.55rem;
+              color: #0e80e8;
+            }
+          }
+        }
+      }
+      .clear{
+        position: absolute;
+        left: calc(50% - 70px);
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+/* 探索分享路由样式 */
+.share{
+  background-color: #333;
+  .banner{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #15132f;
+    text-align: center;
+    .nick_name{
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+    .share_doc{
+      @include fonts(15px, #ed2d2e);
+    }
+  }
+  .content_show{
+    padding: 40px 30px 30px 30px;
+    background-color: #252139;
+    .video-box{
+      width: 100%;
+      height: 100%;
+      .file_name{
+        @include fonts(18px, #fff);
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      video{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .mix{
+    padding: 25px 15px 15px 15px;
+    background-color: #fff;
+    position: relative;
+    .resource{
+      h2{
+        text-align: center;
+        @include fonts(18px, #333);
+        margin-bottom: 10px !important;
+      }
+      h1,h2,h3,h4,h5{
+        font-size: 0.48rem !important;
+        color: #333333 !important;
+        margin-bottom:0.2rem !important;
+      }
+      img{
+        max-width: 100% !important;
+        margin: 0.2rem 0 !important;
+      }
+      p{
+        margin: 0.2rem 0 !important;
+        font-size: 0.37rem !important;
+        color: #666666 !important;
+        br{
+          display: none !important;
+        }
+      }
+    }
+    #audioImage2{
+      position: absolute;
+      right: 15px;
+      top: 22px;
+    }
+  }
+  .search{
+    padding: 50px 30px 50px 30px;
+    background-color: #15132f;
+      img{
+        float: left;
+      }
+      .right{
+        float: right;
+        margin-top: 9px;
+        .doc{
+          @include fonts(13px, #999);
+          text-align: center;
+        }
+        .doc2{
+          @extend .doc;
+        }
+        .btn{
+          @include fonts(15px, #fefefe);
+          text-align: center;
+          line-height: 40px;
+          height: 40px;
+          background-color: #ed2d2e;
+          border-radius: 35px;
+          margin-top: 12px;
+        }
+      }
+  }
+}
+
+/* 编辑器路由样式 */
+.editor{
+    .toolbar {
+        border: 1px solid #ccc;
+        max-width: 100%;
+    }
+    .text {
+        border: 1px solid #ccc;
+        max-width: 100%;
+        min-height: 260px;
+    }
+    .w-e-text-container{
+        /* height: auto !important;
+        min-height: 260px; */
+    }
+    /* table 样式 */
+    table {
+      border-top: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+    }
+    table td,
+    table th {
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding: 3px 5px;
+    }
+    table th {
+      border-bottom: 2px solid #ccc;
+      text-align: center;
+    }
+
+    /* blockquote 样式 */
+    blockquote {
+      display: block;
+      border-left: 8px solid #d0e5f2;
+      padding: 5px 10px;
+      margin: 10px 0;
+      line-height: 1.4;
+      font-size: 100%;
+      background-color: #f1f1f1;
+    }
+
+    /* code 样式 */
+    code {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      background-color: #f1f1f1;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin: 0 3px;
+    }
+    pre code {
+      display: block;
+    }
+
+    /* ul ol 样式 */
+    ul, ol {
+      margin: 10px 0 10px 20px;
+    }
+}
+
+/* 上传路由样式 */
+.fileupload{
+    #progress_box{
+        position: relative;
+        width: 100%;
+        height: 14px;
+        #upload_progress{
+            width: 0;
+            height: 14px;
+            position: absolute;left: 0;top: 0;z-index: 999;
+            background-color: $themeRed;
+            color: #fff;
+            border-radius: 10px;
+            line-height: 14px;
+            text-indent: 24px;
+            transition: width linear 0.3s;
+            display: none;
+        }
+        #upload_progress_bg{
+            width: 100%;
+            height: 14px;
+            position: absolute;left: 0;top: 0;z-index: 1;
+            background-color: $themeGray;
+            color: #fff;
+            border-radius: 10px;
+            line-height: 14px;
+            text-indent: 24px;
+            transition: width linear 0.3s;
+            display: none;
+        }
+    }
+    .addFiles{
+        width: 100px;
+        height: 120px;
+        background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497610110929&di=c4ebfdb8c43932a6d00120ce2362de14&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F02%2F52%2F76U58PICsCd_1024.jpg') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+    #filePicker{
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* 登录路由样式 */
+.login{
+  .head{
+    width: 100%;
+    height: 80px;
+    background-color: $loginHead;
+    .center{
+      width: 1344px;
+      height: 80px;
+      margin: 0 auto;
+      .left{
+        float: left;
+        height: 80px;
+        img{
+          margin-top: 15px;
+          float: left;
+        }
+        span{
+          font-size: 20px;
+          color: $loginHeadColor;
+          float: left;
+          margin-top: 25px;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+  .bg{
+    width: 100%;
+    height: auto;
+    background: url('../img/login/bgimg.png') repeat;
+  }
+  .login-box{
+    width: 850px;
+    height: 340px;
+    background-color: rgba(255, 255, 255, 0.85);
+    position: fixed;
+    left: calc(50% - 425px);
+    top: 30%;
+    border-radius: 10px;
+    .left-box{
+      width: 332px;
+      height: 100%;
+      float: left;
+      .title{
+        margin-top: 36px;
+        margin-bottom: 42px;
+        font-size: 20px;
+        color: #333;
+        text-align: center;
+      }
+      .qr-box{
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        margin-left: 66px;
+        img{
+          margin-top: 20px;
+        }
+      }
+    }
+    .right-box{
+      width: 512px;
+      height: 100%;
+      float: right;
+      .innerbox{
+        width: 380px;
+        margin: 0 auto;
+        .title{
+          text-align: center;
+          font-size: 20px;
+          color: #333;
+          margin-top: 36px;
+          margin-bottom: 42px;
+        }
+        .login{
+          width: 380px;
+          height: 120px;
+          background-color: #fff;
+          margin-bottom: 20px;
+          border-radius: 6px;
+          position: relative;
+          #prompt-info{
+            position: absolute;
+            top: -26px;
+            left: 8px;
+            z-index: auto;
+            font-size: 14px;
+            color: #ec2c2e;
+            display: none;
+          }
+          .user{
+            height: 60px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #d5d5d5;
+            padding: 18px;
+            span{
+              width: 26px;
+              height: 26px;
+              display: inline-block;
+              background: url('../img/login/yh.png') no-repeat;
+              float: left;
+            }
+            input::-webkit-input-placeholder{
+                font-size: 16px;
+                color: #ccc;
+                line-height: normal;
+            }
+            input:-webkit-autofill{
+                box-shadow: 0 0 0 38px white inset;
+            }
+            input{
+              font-size: 16px;
+              color: #333;
+              height: 26px;
+              float: left;
+              margin-left: 16px;
+              line-height: normal;
+              width: 300px;
+              box-sizing: border-box;
+            }
+          }
+          .password{
+            height: 60px;
+            box-sizing: border-box;
+            padding: 18px;
+            span{
+              width: 26px;
+              height: 26px;
+              display: inline-block;
+              background: url('../img/login/mima.png') no-repeat;
+              float: left;
+            }
+            input::-webkit-input-placeholder{
+                font-size: 16px;
+                color: #ccc;
+                line-height: normal;
+            }
+            input::-webkit-input-placeholder{
+                font-size: 16px;
+                color: #ccc;
+                line-height: normal;
+            }
+            input:-webkit-autofill{
+                box-shadow: 0 0 0 38px white inset;
+            }
+            input{
+              font-size: 16px;
+              color: #777;
+              height: 26px;
+              float: left;
+              box-sizing: border-box;
+              margin-left: 16px;
+              width: 300px;
+              line-height: normal;
+              box-sizing: border-box;
+            }
+          }
+        }
+        .loginin{
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          color: #fffefe;
+          font-size: 20px;
+          background-color: #ed2d2e;
+          border-radius: 6px;
+          cursor: pointer;
+          -webkit-user-select:none;
+          -moz-user-select:none;
+          -ms-user-select:none;
+          -o-user-select:none;
+          -khtml-user-select:none;
+          user-select:none;
+          -webkit-transition: all 0.2s linear;
+          &:active{
+            opacity: 0.5;
+          }
+          &:hover{
+            background-color: #a80607;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 设置路由样式 */
+.setting{
+  background-color: #252139;
+  .head{
+    width: 100%;
+    height: 80px;
+    background-color: $loginHead;
+    .center{
+      width: 1344px;
+      height: 80px;
+      margin: 0 auto;
+      .left{
+        float: left;
+        height: 80px;
+        img{
+          margin-top: 15px;
+          float: left;
+        }
+        span{
+          font-size: 20px;
+          color: $loginHeadColor;
+          float: left;
+          margin-top: 25px;
+          margin-left: 12px;
+        }
+      }
+      .right{
+        float: right;
+        height: 80px;
+        position: relative;
+        .personal-logo{
+          border-radius: 50%;
+          margin-top: 22px;
+          cursor: pointer;
+        }
+        .menu{
+          position: absolute;
+          left: -110px;
+          bottom: -117px;
+          z-index: 999;
+          width: 138px;
+          height: 120px;
+          display: none;
+          .triangle{
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 14px solid rgba(39, 35, 70, 0.85);
+            position: absolute;
+            right: 0;
+            top: -13px;
+            z-index: 999;
+          }
+          .menu-list{
+              border-radius: 6px;
+              background-color: rgba(39, 35, 70, 0.85);
+            li{
+              width: 100%;
+              height: 55px;
+              line-height: 55px;
+              box-sizing: border-box;
+              cursor: pointer;
+              span{
+                font-size: 16px;
+                color: #fff;
+                float: left;
+              }
+              &:first-child{
+                border-bottom: 1px solid #000;
+              }
+              .icon-setting{
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                background: url('../img/list/szhi@1x.png') no-repeat;
+                float: left;
+                margin-top: 16px;
+                margin-left: 12px;
+                margin-right: 12px;
+              }
+              .icon-exit{
+                @extend .icon-setting;
+                background: url('../img/list/tuic.png') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content{
+    width: 1344px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 70px;
+    .tit{
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 10px;
+      font-size: 24px;
+      color: #fff;
+      text-indent: 60px;
+      background-color: $loginHead;
+      margin-bottom: 8px;
+    }
+    .change-password{
+      @extend .tit;
+      margin-top: 80px;
+    }
+    .infos{
+      padding: 0 60px;
+      height: 450px;
+      background-color: $loginHead;
+      border-radius: 10px;
+      .headportrait{
+        height: 200px;
+        line-height: 200px;
+        position: relative;
+        span{
+          font-size: 18px;
+          color: #ccc;
+          float: left;
+        }
+        img{
+          border-radius: 50%;
+          float: left;
+          margin-top: 40px;
+          margin-left: 24px;
+          cursor: pointer;
+        }
+        #upload{
+          position: absolute;
+          width: 120px;
+          height: 120px;
+          background-color: rgba(0,0,0,0.5);
+          border-radius: 50%;
+          left: 60px;
+          top: 40px;
+          z-index: 999;
+          display: none;
+          &:after{
+            content: '更换头像';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            font-size: 16px;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            border-radius: 50%;
+            display: block;
+            text-align: center;
+          }
+          #isfile{
+            cursor: pointer;
+            filter:alpha(opacity=0);
+            -moz-opacity:0;
+            -khtml-opacity: 0;
+            opacity: 0;
+            position: relative;
+            z-index: 1000;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            border-radius: 50%;
+            display: block;
+          }
+        }
+      }
+      .com-name{
+        height: 60px;
+        line-height: 60px;
+        line-height: 60px;
+        span{
+          font-size: 18px;
+          color: #ccc;
+          float: left;
+        }
+        input{
+          width: 1000px;
+          height: 60px;
+          line-height: 60px;
+          margin-left: 24px;
+          text-indent: 20px;
+          color: #fff;
+          font-size: 18px;
+          background-color: rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+        }
+      }
+      .accountnumber{
+        height: 60px;
+        line-height: 60px;
+        line-height: 60px;
+        margin-bottom: 30px;
+        span{
+          font-size: 18px;
+          color: #ccc;
+          float: left;
+        }
+        div{
+          color: #fff;
+          float: left;
+          font-size: 18px;
+          margin-left: 40px;
+        }
+      }
+      .save{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+        width: 220px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        color: #fff;
+        background-color: #ed2c2e;
+        border-radius: 6px;
+        font-size: 20px;
+        margin: 0 auto;
+        cursor: pointer;
+        -webkit-transition: all 0.2s linear;
+        &:active{
+          opacity: 0.5;
+        }
+        &:hover{
+          background-color: #a80607;
+        }
+      }
+    }
+    .change-box{
+      padding: 0 60px;
+      height: 441px;
+      background-color: $loginHead;
+      border-radius: 10px;
+      div{
+        input{
+          margin-top: 14px;
+          width: 1000px;
+          height: 60px;
+          line-height: 60px;
+          text-indent: 20px;
+          color: #fff;
+          font-size: 18px;
+          background-color: rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          float: left;
+        }
+        &:nth-child(1) > input{
+            margin-top: 36px;
+        }
+      }
+      .save{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+        width: 220px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        color: #fff;
+        background-color: #ed2c2e;
+        border-radius: 6px;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 60px auto 140px auto;
+        -webkit-transition: all 0.2s linear;
+        &:active{
+          opacity: 0.5;
+        }
+        &:hover{
+          background-color: #a80607;
+        }
+      }
+    }
+  }
+}
+
+/* 列表路由样式 */
+.list{
+  background-color: #252139;
+  .head{
+    width: 100%;
+    height: 80px;
+    background-color: $loginHead;
+    .center{
+      width: 1344px;
+      height: 80px;
+      margin: 0 auto;
+      .left{
+        float: left;
+        height: 80px;
+        img{
+          margin-top: 15px;
+          float: left;
+        }
+        span{
+          font-size: 20px;
+          color: $loginHeadColor;
+          float: left;
+          margin-top: 25px;
+          margin-left: 12px;
+        }
+      }
+      .right{
+        float: right;
+        height: 80px;
+        position: relative;
+        .personal-logo{
+          border-radius: 50%;
+          margin-top: 22px;
+          cursor: pointer;
+        }
+        .menu{
+          position: absolute;
+          left: -110px;
+          bottom: -117px;
+          z-index: 999;
+          width: 138px;
+          height: 120px;
+          display: none;
+          .triangle{
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 14px solid rgba(39, 35, 70, 0.85);
+            position: absolute;
+            right: 0;
+            top: -13px;
+            z-index: 999;
+          }
+          .menu-list{
+              border-radius: 6px;
+              background-color: rgba(39, 35, 70, 0.85);
+            li{
+              width: 100%;
+              height: 55px;
+              line-height: 55px;
+              box-sizing: border-box;
+              cursor: pointer;
+              span{
+                font-size: 16px;
+                color: #fff;
+                float: left;
+              }
+              &:first-child{
+                border-bottom: 1px solid #000;
+              }
+              .icon-setting{
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                background: url('../img/list/szhi@1x.png') no-repeat;
+                float: left;
+                margin-top: 16px;
+                margin-left: 12px;
+                margin-right: 12px;
+              }
+              .icon-exit{
+                @extend .icon-setting;
+                background: url('../img/list/tuic.png') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content{
+    width: 1180px;
+    margin: 0 auto;
+    margin-top: 80px;
+    height: auto;
+    margin-bottom: 30px;
+    .add{
+      box-sizing: border-box;
+      width: 280px;
+      height: 374px;
+      background-color: #15132f;
+      float: left;
+      text-align: center;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.14);
+      img{
+        margin-top: 42px;
+        cursor: pointer;
+      }
+      p{
+        margin-top: 31px;
+        color: #ccc;
+        font-size: 16px;
+        padding: 0 16px;
+      }
+    }
+    .item{
+      box-sizing: border-box;
+      width: 280px;
+      height: 374px;
+      background-color: #15132f;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.14);
+      float: left;
+      text-align: center;
+      position: relative;
+      .menu-nav{
+        width: 100%;
+        margin-top: 12px;
+        margin-bottom: 20px;
+        .ctrl-nav{
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          -khtml-user-select: none;
+          user-select: none;
+        }
+        .in{
+          width: 116px;
+          text-align: right;
+          float: left;
+          font-size: 16px;
+          color: #ccc;
+          cursor: pointer;
+          box-sizing: border-box;
+          &:hover{
+            color: #ec2c2e;
+          }
+        }
+        .out{
+          @extend .in;
+          text-align: left;
+          margin-left: 48px;
+        }
+        .sel{
+          color: #ec2c2e;
+        }
+      }
+      .face{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 56px;
+        display: none;
+        .resource{
+          height: 236px;
+          overflow: auto;
+          /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+          &::-webkit-scrollbar{
+              width: 6px;
+          }
+          /*定义滚动条轨道 内阴影+圆角*/
+          &::-webkit-scrollbar-track{
+              background-color: #d5d5d5;
+              border-radius: 10px;
+          }
+          /*定义滑块 内阴影+圆角*/
+          &::-webkit-scrollbar-thumb{
+              background-color: #666;
+              border-radius: 10px;
+          }
+          h1,h2,h2,h3,h4,h5{
+              font-size: 16px !important;
+              color: #ccc !important;
+              max-width: 252px;
+              text-align: left;
+              margin-left: 14px;
+              font-weight: normal;
+              &:first-child{
+                overflow: hidden;
+                height: 24px;
+                color: #fff !important;
+                text-align: left;
+                white-space:nowrap; /* 规定段落中的文本不进行换行 */
+                text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+              }
+          }
+          p{
+            font-size: 16px !important;
+            color: #ccc !important;
+            max-width: 252px;
+            text-align: left;
+            margin-left: 14px;
+            line-height: 23px;
+            br{
+              display: none;
+            }
+            &:first-child{
+              overflow: hidden;
+              height: 24px;
+              color: #fff !important;
+              text-align: left;
+              white-space:nowrap; /* 规定段落中的文本不进行换行 */
+              text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+            }
+            span{
+              font-size: 16px !important;
+              color: #ccc !important;
+            }
+            img{
+              max-width: 100% !important;
+              /* max-height: 140px !important; */
+              margin-top: 10px !important;
+              margin-bottom: 6px !important;
+              display: block;
+            }
+          }
+        }
+        .music-box{
+          height: 50px;
+          overflow: hidden;
+          .icon-music{
+            display: block;
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: url('../img/list/yinpin.png') no-repeat;
+            margin-left: 14px;
+            margin-top: 6px;
+            cursor: pointer;
+          }
+          .m_name{
+            font-size: 16px;
+            color: #ccc;
+            float: left;
+            margin-top: 8px;
+            margin-left: 8px;
+            max-width: 100px;
+            overflow:hidden; /* 溢出隐藏 */
+            white-space:nowrap; /* 规定段落中的文本不进行换行 */
+            text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+          }
+          .m_timer{
+            @extend .m_name;
+            font-size: 14px;
+            margin-top: 10px;
+          }
+        }
+        .video{
+          img{
+            cursor: pointer;
+          }
+          .v_name{
+            margin-top: 16px;
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 8px;
+            text-align: left;
+            margin-left: 14px;
+            max-width: 100%;
+            max-height: 24px;
+            overflow: hidden;
+            white-space:nowrap; /* 规定段落中的文本不进行换行 */
+            text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+          }
+          .infos{
+            .v_timer{
+              font-size: 14px;
+              color: #ccc;
+              float: left;
+              margin-left: 14px;
+            }
+            .v_size{
+              @extend .v_timer;
+            }
+          }
+        }
+        .d3{
+          .typeName{
+            font-size: 18px;
+            color: #fff;
+          }
+          .d3_name_android_name{
+            font-size: 16px;
+            color: #ccc;
+            max-width: 100%;
+            max-height: 24px;
+          }
+          .d3_name_android_size{
+            font-size: 14px;
+            color: #ccc;
+          }
+          .d3_name_ios_name{
+            @extend .d3_name_android_name;
+          }
+          .d3_name_ios_size{
+            @extend .d3_name_android_size;
+          }
+        }
+      }
+      .face1{
+        display: block;
+        img{
+          display: block;
+          float: left;
+          margin-left: 14px;
+          cursor: pointer;
+        }
+        .hover-box{
+          display: none;
+          height: 66px;
+          margin: 0 14px;
+          text-align: center;
+          font-size: 14px;
+          color: #fffefe;
+          background-color: rgba(0,0,0,0.45);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          p{
+            height: 40px;
+            margin-top: 13px;
+            padding: 0 18%;
+          }
+        }
+      }
+      .see-box{
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 999;
+        transition: all 0.3s linear;
+        &:hover{
+          background-color: rgba(0,0,0,0.2);
+        }
+        .see_icon{
+          width: 18px;
+          height: 18px;
+          display: block;
+          float: left;
+          margin-left: 14px;
+          margin-top: 18px;
+          background: url('../img/list/liulan.png') no-repeat;
+        }
+        .edit_icon{
+          width: 20px;
+          height: 20px;
+          display: block;
+          float: right;
+          margin-right: 14px;
+          margin-top: 14px;
+          cursor: pointer;
+          background: url('../img/list/bianjib.png') no-repeat;
+          &:hover{
+            background: url('../img/list/bianjih.png') no-repeat;
+          }
+        }
+        .del_icon{
+          @extend .edit_icon;
+          background: url('../img/list/scb.png') no-repeat;
+          &:hover{
+            background: url('../img/list/sch.png') no-repeat;
+          }
+        }
+        .see_num{
+          font-size: 14px;
+          color: #ccc;
+          float: left;
+          margin-left: 8px;
+        }
+      }
+    }
+    .common-right{
+      margin-right: 20px;
+      margin-top: 20px;
+      &:nth-child(4n){
+        margin-right: 0;
+      }
+      &:nth-child(1){
+        margin-top: 0;
+      }
+      &:nth-child(2){
+        margin-top: 0;
+      }
+      &:nth-child(3){
+        margin-top: 0;
+      }
+      &:nth-child(4){
+        margin-top: 0;
+      }
+    }
+
+  }
+  .footer{
+    background-color: #000;
+    width: 100%;
+    height: 80px;
+    margin-top: 270px;
+  }
+}
+
+/* 编辑识别图 */
+.editShowImage{
+  background-color: #252139;
+  .head{
+    width: 100%;
+    height: 80px;
+    background-color: $loginHead;
+    .center{
+      width: 1344px;
+      height: 80px;
+      margin: 0 auto;
+      .left{
+        float: left;
+        height: 80px;
+        img{
+          margin-top: 15px;
+          float: left;
+        }
+        span{
+          font-size: 20px;
+          color: $loginHeadColor;
+          float: left;
+          margin-top: 25px;
+          margin-left: 12px;
+        }
+      }
+      .right{
+        float: right;
+        height: 80px;
+        position: relative;
+        .personal-logo{
+          border-radius: 50%;
+          margin-top: 22px;
+          cursor: pointer;
+        }
+        .menu{
+          position: absolute;
+          left: -110px;
+          bottom: -117px;
+          z-index: 999;
+          width: 138px;
+          height: 120px;
+          display: none;
+          .triangle{
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 14px solid rgba(39, 35, 70, 0.85);
+            position: absolute;
+            right: 0;
+            top: -13px;
+            z-index: 999;
+          }
+          .menu-list{
+              border-radius: 6px;
+              background-color: rgba(39, 35, 70, 0.85);
+            li{
+              width: 100%;
+              height: 55px;
+              line-height: 55px;
+              box-sizing: border-box;
+              cursor: pointer;
+              span{
+                font-size: 16px;
+                color: #fff;
+                float: left;
+              }
+              &:first-child{
+                border-bottom: 1px solid #000;
+              }
+              .icon-setting{
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                background: url('../img/list/szhi@1x.png') no-repeat;
+                float: left;
+                margin-top: 16px;
+                margin-left: 12px;
+                margin-right: 12px;
+              }
+              .icon-exit{
+                @extend .icon-setting;
+                background: url('../img/list/tuic.png') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content{
+    width: 1344px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 70px;
+    .tit{
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 10px;
+      font-size: 24px;
+      color: #fff;
+      text-indent: 60px;
+      background-color: #15132f;
+      margin-bottom: 8px;
+    }
+    .upload-shibietu-box{
+      width: 100%;
+      height: 320px;
+      background-color: #15132f;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      .p_name{
+        font-size: 20px;
+        color: #fff;
+        text-indent: 60px;
+        margin-bottom: 20px;
+        padding-top: 40px;
+      }
+      .show{
+        .img-preview{
+          width: 188px;
+          height: 188px;
+          float: left;
+          margin-left: 60px;
+          border-radius: 20px;
+          background: url('../img/list/sbt.png') center center no-repeat;
+          background-color: rgba(0,0,0,0.2);
+          position: relative;
+        }
+        .btn-box{
+          float: left;
+          margin-left: 16px;
+          margin-top: 72px;
+          .btn-upload-shibietu{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            width: 160px;
+            height: 44px;
+            line-height: 44px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 16px;
+            background-color: #ed2d2e;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.2s linear;
+            position: relative;
+            &:active{
+              opacity: 0.5;
+            }
+            &:hover{
+              background-color: #a80607;
+            }
+            #shibietu{
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 160px;
+              height: 44px;
+              line-height: 44px;
+              cursor: pointer;
+              filter:alpha(opacity=0);
+              -moz-opacity:0;
+              -khtml-opacity: 0;
+              opacity: 0;
+            }
+          }
+          .upload-shibietu-doc{
+            font-size: 16px;
+            color: #878787;
+            max-width: 254px;
+          }
+        }
+      }
+    }
+    .btn-groups{
+      width: 100%;
+      margin-bottom: 140px;
+      .center-btn{
+        width: 220px + 20px + 220px;
+        height: 60px;
+        margin: 0 auto;
+        margin-top: 56px;
+        .btns{
+          box-sizing: border-box;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          -khtml-user-select: none;
+          user-select: none;
+          width: 220px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          font-size: 20px;
+          cursor: pointer;
+          border-radius: 6px;
+          -webkit-transition: all 0.2s linear;
+          &:active{
+            opacity: 0.5;
+          }
+        }
+        .btn-cancel{
+          float: left;
+          background-color: #fff;
+          color: #333;
+          &:hover{
+            background-color: #d5d5d5;
+          }
+        }
+        .btn-sure{
+          float: left;
+          margin-left: 20px;
+          background-color: #ed2c2e;
+          color: #fff;
+          &:hover{
+            background-color: #a80607;
+          }
+        }
+      }
+    }
+  }
+  .crop-wrap{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 998;
+    display: none;
+    .crop-modal{
+      width: 600px;
+      height: 520px;
+      background-color: #fff;
+      border-radius: 10px;
+      position: fixed;
+      left: calc(50% - 300px);
+      top: calc(50% - 260px);
+      z-index: 999;
+      text-align: center;
+      .edit-tit{
+        text-align: center;
+        font-size: 20px;
+        color: #333;
+        padding-top: 50px;
+        margin-bottom: 24px;
+      }
+      .show-init{
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+        img{
+        }
+      }
+      .edit-resize{
+        margin-bottom: 24px;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+      }
+      .btn-save{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+        width: 160px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 6px;
+        text-align: center;
+        color: #fff;
+        background-color: #ed2c2e;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 auto;
+        margin-top: 38px;
+        -webkit-transition: all 0.2s linear;
+        &:active{
+          opacity: 0.5;
+        }
+        &:hover{
+          background-color: #a80607;
+        }
+      }
+      .cropper-container.cropper-bg{
+      }
+      .close{
+        position: absolute;
+        right: 40px;
+        top: 30px;
+        width: 22px;
+        height: 22px;
+        display: block;
+        background: url('../img/list/ctgb.png') no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* 编辑路由样式 */
+.edit{
+  background-color: #252139;
+  .head{
+    width: 100%;
+    height: 80px;
+    background-color: $loginHead;
+    .center{
+      width: 1344px;
+      height: 80px;
+      margin: 0 auto;
+      .left{
+        float: left;
+        height: 80px;
+        img{
+          margin-top: 15px;
+          float: left;
+        }
+        span{
+          font-size: 20px;
+          color: $loginHeadColor;
+          float: left;
+          margin-top: 25px;
+          margin-left: 12px;
+        }
+      }
+      .right{
+        float: right;
+        height: 80px;
+        position: relative;
+        .personal-logo{
+          border-radius: 50%;
+          margin-top: 22px;
+          cursor: pointer;
+        }
+        .menu{
+          position: absolute;
+          left: -110px;
+          bottom: -117px;
+          z-index: 999;
+          width: 138px;
+          height: 120px;
+          display: none;
+          .triangle{
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 14px solid rgba(39, 35, 70, 0.85);
+            position: absolute;
+            right: 0;
+            top: -13px;
+            z-index: 999;
+          }
+          .menu-list{
+              border-radius: 6px;
+              background-color: rgba(39, 35, 70, 0.85);
+            li{
+              width: 100%;
+              height: 55px;
+              line-height: 55px;
+              box-sizing: border-box;
+              cursor: pointer;
+              span{
+                font-size: 16px;
+                color: #fff;
+                float: left;
+              }
+              &:first-child{
+                border-bottom: 1px solid #000;
+              }
+              .icon-setting{
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                background: url('../img/list/szhi@1x.png') no-repeat;
+                float: left;
+                margin-top: 16px;
+                margin-left: 12px;
+                margin-right: 12px;
+              }
+              .icon-exit{
+                @extend .icon-setting;
+                background: url('../img/list/tuic.png') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content{
+    width: 1344px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 70px;
+    .tit{
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 10px;
+      font-size: 24px;
+      color: #fff;
+      text-indent: 60px;
+      background-color: #15132f;
+      margin-bottom: 8px;
+    }
+    .upload-shibietu-box{
+      width: 100%;
+      height: 320px;
+      background-color: #15132f;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      .p_name{
+        font-size: 20px;
+        color: #fff;
+        text-indent: 60px;
+        margin-bottom: 20px;
+        padding-top: 40px;
+      }
+      .show{
+        .img-preview{
+          width: 188px;
+          height: 188px;
+          float: left;
+          margin-left: 60px;
+          border-radius: 20px;
+          background: url('../img/list/sbt.png') center center no-repeat;
+          background-color: rgba(0,0,0,0.2);
+          position: relative;
+        }
+        .btn-box{
+          float: left;
+          margin-left: 16px;
+          margin-top: 72px;
+          .btn-upload-shibietu{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            width: 160px;
+            height: 44px;
+            line-height: 44px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 16px;
+            background-color: #ed2d2e;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.2s linear;
+            position: relative;
+            &:active{
+              opacity: 0.5;
+            }
+            &:hover{
+              background-color: #a80607;
+            }
+            #shibietu{
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 160px;
+              height: 44px;
+              line-height: 44px;
+              cursor: pointer;
+              filter:alpha(opacity=0);
+              -moz-opacity:0;
+              -khtml-opacity: 0;
+              opacity: 0;
+            }
+          }
+          .upload-shibietu-doc{
+            font-size: 16px;
+            color: #878787;
+            max-width: 254px;
+          }
+        }
+      }
+    }
+    .result-box{
+      width: 100%;
+      height: 1150px;
+      background-color: #15132f;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      .action-btn{
+        margin-left: 60px;
+        padding-top: 58px;
+        .tit-doc{
+          font-size: 20px;
+          color: #fff;
+          float: left;
+        }
+        .ctrl-center{
+          margin-bottom: 50px;
+          .nav{
+            float: left;
+            margin-left: 50px;
+            cursor: pointer;
+          }
+          .nav-item{
+            .icon-sel{
+              width: 16px;
+              height: 17px;
+              display: block;
+              background: url('../img/list/meixuanzhong.png') no-repeat;
+              float: left;
+              margin-top: 8px;
+            }
+            span{
+              float: left;
+              font-size: 20px;
+              color: #ccc;
+              margin-left: 10px;
+            }
+          }
+          .sel{
+            .icon-sel{
+              background: url('../img/list/xuanzhong.png') no-repeat;
+            }
+          }
+        }
+        .mix-box{
+          .mix-tit{
+            color: #ccc;
+            font-size: 16px;
+            margin-bottom: 12px;
+          }
+          .input-content{
+            width: 1000px;
+            height: 60px;
+            border-radius: 10px;
+            background-color: rgba(0,0,0,0.2);
+            font-size: 16px;
+            color: #fff;
+            text-indent: 22px;
+            display: block;
+            margin-bottom: 34px;
+          }
+          .editor-box{
+            width: 1000px;
+            border-radius: 10px;
+            .toolbar{
+              background-color: rgba(0,0,0,0.2);
+              height: 50px;
+              line-height: 50px;
+              .w-e-menu{
+                padding: 0 14px;
+                z-index: 99;
+              }
+              margin-bottom: 8px;
+            }
+            .pleaseInput{
+              font-size: 16px;
+              color: #878787;
+              text-indent: 22px;
+              margin-bottom: 8px;
+            }
+            .text{
+              background-color: rgba(0,0,0,0.2);
+              height: 360px;
+              .w-e-text{
+                color: #fff;
+                padding-left: 22px;
+                padding-top: 16px;
+                font-size: 16px;
+                overflow: auto;
+                /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+                &::-webkit-scrollbar{
+                    width: 8px;
+                }
+                /*定义滚动条轨道 内阴影+圆角*/
+                &::-webkit-scrollbar-track{
+                    background-color: #d5d5d5;
+                    border-radius: 10px;
+                }
+                /*定义滑块 内阴影+圆角*/
+                &::-webkit-scrollbar-thumb{
+                    background-color: #666;
+                    border-radius: 10px;
+                }
+              }
+            }
+            .w-e-text-container{
+              z-index: auto;
+            }
+          }
+          .bgm-box{
+            margin-top: 30px;
+            margin-bottom: 18px;
+            width: 94px;
+            cursor: pointer;
+            .icon-sel{
+              width: 16px;
+              height: 17px;
+              display: block;
+              background: url('../img/list/meixuanzhong.png') no-repeat;
+              float: left;
+              margin-top: 4px;
+            }
+            span{
+              font-size: 16px;
+              color: #ccc;
+              float: left;
+              margin-left: 10px;
+            }
+          }
+          .sel{
+            .icon-sel{
+              background: url('../img/list/xuanzhong.png') no-repeat;
+            }
+          }
+          .upload-bgm{
+            .btn-upload{
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              -o-user-select: none;
+              -khtml-user-select: none;
+              user-select: none;
+              width: 160px;
+              height: 46px;
+              float: left;
+              line-height: 46px;
+              background-color: #ed2d2e;
+              border-radius: 6px;
+              font-size: 16px;
+              color: rgba(255,255,255,0.5);
+              text-align: center;
+              cursor: pointer;
+              -webkit-transition: all 0.2s linear;
+              &:active{
+                opacity: 0.5;
+              }
+              &:hover{
+                background-color: #a80607;
+              }
+            }
+            .doc{
+              font-size: 16px;
+              color: #878787;
+              float: left;
+              margin-left: 14px;
+              height: 46px;
+              line-height: 46px;
+            }
+          }
+          .uploader-bgm{
+            width: 1000px;
+            border-radius: 10px;
+            background-color: rgba(0,0,0,.2);
+            margin-top: 18px;
+            #uploader-demo{
+              #fileName{
+                font-size: 16px;
+                color: #ccc;
+                text-indent: 24px;
+                padding-top: 26px;
+                padding-bottom: 22px;
+                display: none;
+              }
+              .progress-box{
+                width: 842px;
+                height: 14px;
+                margin-left: 24px;
+                background-color: rgba(255,255,255,0.1);
+                border-radius: 10px;
+                position: relative;
+                display: none;
+                .progress-center{
+                  width: 0;
+                  height: 14px;
+                  background-color: #ed2d2e;
+                  border-radius: 10px;
+                  -webkit-transition: all 0.3s linear;
+                }
+                .text{
+                  color: #ccc;
+                  font-size: 16px;
+                  position: absolute;
+                  right: -53px;
+                  top: -5px;
+                }
+              }
+              #cancelBtn{
+                box-sizing: border-box;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+                width: 130px;
+                height: 36px;
+                line-height: 36px;
+                border-radius: 6px;
+                margin-top: 24px;
+                font-size: 16px;
+                cursor: pointer;
+                display: none;
+                margin-left: 24px;
+                margin-bottom: 28px;
+                -webkit-transition: all 0.2s linear;
+                &:active{
+                  opacity: 0.5;
+                }
+                &:hover{
+                  background-color: #a80607;
+                }
+              }
+              .fullName{
+                padding-top: 30px;
+                margin-left: 24px;
+                line-height: 30px;
+                padding-bottom: 48px;
+                display: none;
+                .icon-music{
+                  display: block;
+                  float: left;
+                  width: 30px;
+                  height: 30px;
+                  background: url('../img/list/yinpin.png') no-repeat;
+                  /* margin-left: 14px;
+                  margin-top: 6px; */
+                  cursor: pointer;
+                }
+                .music-name{
+                  float: left;
+                  color: #ccc;
+                  font-size: 16px;
+                  margin-left: 8px;
+                }
+                .music-timer{
+                  @extend .music-name;
+                  font-size: 14px;
+                  margin-top: 2px;
+                }
+                #btn-upload-font2{
+                  box-sizing: border-box;
+                  -webkit-user-select: none;
+                  -moz-user-select: none;
+                  -ms-user-select: none;
+                  -o-user-select: none;
+                  -khtml-user-select: none;
+                  user-select: none;
+                  width: 130px;
+                  height: 36px;
+                  line-height: 36px;
+                  border-radius: 6px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  margin-top: 80px;
+                  -webkit-transition: all 0.2s linear;
+                  &:active{
+                    opacity: 0.5;
+                  }
+                  &:hover{
+                    background-color: #a80607;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .video-box{
+          display: none;
+          .upload-video-btn{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            width: 160px;
+            height: 46px;
+            line-height: 46px;
+            background-color: #ed2d2e;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.2s linear;
+            &:active{
+              opacity: 0.5;
+            }
+            &:hover{
+              background-color: #a80607;
+            }
+          }
+          .doc{
+            color: #878787;
+            font-size: 16px;
+            margin-top: 16px;
+          }
+          .uploader-video{
+            width: 1000px;
+            border-radius: 10px;
+            background-color: rgba(0,0,0,.2);
+            margin-top: 18px;
+            display: none;
+            .fileName-video{
+              font-size: 16px;
+              color: #ccc;
+              text-indent: 24px;
+              padding-top: 26px;
+              padding-bottom: 22px;
+            }
+            .progress-box{
+              width: 842px;
+              height: 14px;
+              margin-left: 24px;
+              background-color: rgba(255,255,255,0.1);
+              border-radius: 10px;
+              position: relative;
+              .progress-center{
+                width: 0;
+                height: 14px;
+                background-color: #ed2d2e;
+                border-radius: 10px;
+                -webkit-transition: all 0.3s linear;
+              }
+              .text{
+                color: #ccc;
+                font-size: 16px;
+                position: absolute;
+                right: -53px;
+                top: -5px;
+              }
+            }
+            .cancel-btn{
+              box-sizing: border-box;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              -o-user-select: none;
+              -khtml-user-select: none;
+              user-select: none;
+              width: 130px;
+              height: 36px;
+              line-height: 36px;
+              border-radius: 6px;
+              font-size: 16px;
+              cursor: pointer;
+              margin-top: 24px;
+              margin-left: 24px;
+              margin-bottom: 28px;
+              -webkit-transition: all .2s linear;
+              &:active{
+                opacity: 0.5;
+              }
+              &:hover{
+                background-color: #a80607;
+              }
+            }
+          }
+          #success-video-box{
+            margin-top: 42px;
+            display: none;
+            position: relative;
+            .video-init{
+              width: 400px;
+              height: 240px;
+              overflow: hidden;
+              background-color: #000;
+              #play-video{
+                width: 400px;
+                height: 240px;
+              }
+            }
+            #success-video-name{
+              font-size: 18px;
+              color: #ccc;
+              position: absolute;
+              left: 420px;
+              top: 110px;
+            }
+            .timers{
+              font-size: 14px;
+              color: #ccc;
+              position: absolute;
+              left: 420px;
+              top: 142px;
+            }
+            .sizes{
+              font-size: 14px;
+              color: #ccc;
+              position: absolute;
+              left: 522px;
+              top: 142px;
+            }
+            #uploader-video-again{
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              -o-user-select: none;
+              -khtml-user-select: none;
+              user-select: none;
+              width: 160px;
+              height: 46px;
+              line-height: 46px;
+              background-color: #ed2d2e;
+              border-radius: 6px;
+              font-size: 16px;
+              color: #fff;
+              text-align: center;
+              cursor: pointer;
+              position: absolute;
+              left: 420px;
+              top: 194px;
+              -webkit-transition: all .2s linear;
+              &:active{
+                opacity: 0.5;
+              }
+              &:hover{
+                background-color: #a80607;
+              }
+            }
+          }
+          .new-block{
+            position: relative;
+            .movmp4{
+              @extend .doc;
+            }
+            #upload-movmp4{
+              position: relative;
+              .uploadMovmp4{
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                width: 160px;
+                height: 46px;
+                display: block;
+                opacity: 0;
+                cursor: pointer;
+              }
+            }
+            .fileName{
+              @include fonts(18px, #ccc);
+              position: absolute;
+              left: 420px;
+              top: 240px;
+            }
+            .fileSize{
+              @include fonts(14px, #ccc);
+              position: absolute;
+              left: 522px;
+              top: 272px;
+            }
+            .fileTime{
+              @include fonts(14px, #ccc);
+              position: absolute;
+              left: 420px;
+              top: 272px;
+            }
+          }
+        }
+        .box-3d{
+          display: none;
+          .upload-3d-btn{
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            width: 220px;
+            height: 46px;
+            line-height: 46px;
+            background-color: #ed2d2e;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.2s linear;
+            &:active{
+              opacity: 0.5;
+            }
+            &:hover{
+              background-color: #a80607;
+            }
+            .android{
+              position: absolute;
+              z-index: auto;
+              width: 220px;
+              height: 46px;
+              line-height: 46px;
+              left: 0;
+              top: 0;
+              opacity: 0;
+              box-sizing: border-box;
+              cursor: pointer;
+            }
+          }
+          .upload-3d-btn2{
+            @extend .upload-3d-btn;
+            margin-top: 20px;
+            .ios{
+              position: absolute;
+              z-index: auto;
+              width: 220px;
+              height: 46px;
+              line-height: 46px;
+              left: 0;
+              top: 0;
+              opacity: 0;
+              box-sizing: border-box;
+              cursor: pointer;
+            }
+          }
+          .showFileInfo{
+            margin-top: 30px;
+            .fileName{
+              font-size: 18px;
+              color: #ccc;
+              text-align: left;
+              max-width: 600px;
+              max-height: 46px;
+              overflow: hidden;
+            }
+            .fileSize{
+              @extend .fileName;
+              font-size: 14px;
+              margin-top: 6px;
+            }
+          }
+          .doc{
+            color: #878787;
+            font-size: 16px;
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+    .upto-link{
+      width: 100%;
+      height: 254px;
+      background-color: #15132f;
+      border-radius: 10px;
+      .link-tit{
+        padding-top: 46px;
+        margin-bottom: 15px;
+        color: #fff;
+        font-size: 18px;
+        text-indent: 60px;
+      }
+      .link-name{
+        line-height: 60px;
+        .icon-sel{
+          width: 16px;
+          height: 17px;
+          display: block;
+          float: left;
+          margin-top: 22px;
+          margin-left: 60px;
+          background: url('../img/list/xuanzhong.png') no-repeat;
+        }
+        .is-linkname{
+          float: left;
+          margin-left: 10px;
+          color: #ccc;
+          font-size: 16px;
+        }
+        input{
+          width: 896px;
+          height: 60px;
+          line-height: 60px;
+          float: left;
+          margin-left: 10px;
+          line-height: 60px;
+          color: #fff;
+          font-size: 16px;
+          background-color: rgba(0,0,0,.2);
+          text-indent: 20px;
+          border-radius: 10px;
+        }
+      }
+      .link-address{
+        line-height: 60px;
+        margin-top: 14px;
+        .is-linkaddress{
+          float: left;
+          margin-left: 86px;
+          color: #ccc;
+          font-size: 16px;
+        }
+        input{
+          width: 896px;
+          height: 60px;
+          line-height: 60px;
+          float: left;
+          margin-left: 10px;
+          line-height: 60px;
+          color: #fff;
+          font-size: 16px;
+          background-color: rgba(0,0,0,.2);
+          text-indent: 20px;
+          border-radius: 10px;
+        }
+      }
+    }
+    .btn-groups{
+      width: 100%;
+      margin-bottom: 140px;
+      .center-btn{
+        width: 220px + 20px + 220px;
+        height: 60px;
+        margin: 0 auto;
+        margin-top: 56px;
+        .btns{
+          box-sizing: border-box;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          -khtml-user-select: none;
+          user-select: none;
+          width: 220px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          font-size: 20px;
+          cursor: pointer;
+          border-radius: 6px;
+          -webkit-transition: all 0.2s linear;
+          &:active{
+            opacity: 0.5;
+          }
+        }
+        .btn-cancel{
+          float: left;
+          background-color: #fff;
+          color: #333;
+          &:hover{
+            background-color: #d5d5d5;
+          }
+        }
+        .btn-sure{
+          float: left;
+          margin-left: 20px;
+          background-color: #ed2c2e;
+          color: #fff;
+          &:hover{
+            background-color: #a80607;
+          }
+        }
+      }
+    }
+  }
+  .crop-wrap{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 20000;
+    display: none;
+    .crop-modal{
+      width: 600px;
+      height: 520px;
+      background-color: #fff;
+      border-radius: 10px;
+      position: fixed;
+      left: calc(50% - 300px);
+      top: calc(50% - 260px);
+      z-index: 20001;
+      text-align: center;
+      .edit-tit{
+        text-align: center;
+        font-size: 20px;
+        color: #333;
+        padding-top: 50px;
+        margin-bottom: 24px;
+      }
+      .show-init{
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+        img{
+        }
+      }
+      .edit-resize{
+        margin-bottom: 24px;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+      }
+      .btn-save{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+        width: 160px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 6px;
+        text-align: center;
+        color: #fff;
+        background-color: #ed2c2e;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 auto;
+        margin-top: 38px;
+        -webkit-transition: all 0.2s linear;
+        &:active{
+          opacity: 0.5;
+        }
+        &:hover{
+          background-color: #a80607;
+        }
+      }
+      .cropper-container.cropper-bg{
+      }
+      .close{
+        position: absolute;
+        right: 40px;
+        top: 30px;
+        width: 22px;
+        height: 22px;
+        display: block;
+        background: url('../img/list/ctgb.png') no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* 图文音路由样式 */
+.tuwenyin{
+  background-color: #fff;
+  section{
+      height: 100%;
+  }
+  #whole{
+      margin:auto;
+      position: absolute;
+      top: 2%;
+      left: 0;
+      right: 0;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 0.53rem 0;
+      background: white;
+      border-radius: 6px;
+      overflow: auto;
+      /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+      &::-webkit-scrollbar{
+          width: 6px;
+      }
+      /*定义滚动条轨道 内阴影+圆角*/
+      &::-webkit-scrollbar-track{
+          background-color: #d5d5d5;
+          border-radius: 10px;
+      }
+      /*定义滑块 内阴影+圆角*/
+      &::-webkit-scrollbar-thumb{
+          background-color: #666;
+          border-radius: 10px;
+      }
+  }
+  #wrap{
+      width: 100%;
+      word-break:break-word;
+      padding: 0 0.53rem;
+      box-sizing: border-box;
+      font-size: 0;
+  }
+  #audioImage{
+      position: absolute;
+      top: 0.4rem;
+      right: 0.53rem;
+      width: 0.93rem;
+      height: 0.93rem;
+      margin: 0;
+  }
+  img{
+      width: 100%;
+      margin: 0.2rem 0;
+  }
+  h1,h2,h2,h3,h4,h5{
+      width: 88%;
+      font-size: 0.48rem;
+      color: #333333;
+      margin-bottom:0.2rem;
+      text-align: left;
+  }
+  #wrap h2:first-child{
+    margin-bottom: 0.4rem;
+  }
+  p{
+      margin: 0.2rem 0;
+      font-size: 0.37rem !important;
+      color: #666666;
+  }
+  p span{
+      margin: 0.2rem 0;
+      font-size: 0.37rem !important;
+      color: #666666;
+  }
+  p br{
+    display: none;
+  }
+}

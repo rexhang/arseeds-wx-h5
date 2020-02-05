@@ -1,0 +1,25 @@
+[
+  {"name": "mesh_1", "w": 0.7,  "h": 0.4, "w_number": 10,  "h_number": 10, "x": -0.2,  "y": 0.6,  "z": -1.8, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_2", "w": 0.85, "h": 0.5, "w_number": 10,  "h_number": 10, "x": 0,     "y": 0,    "z": -1.8, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_3", "w": 0.55, "h": 0.3, "w_number": 10,  "h_number": 10, "x": -0.15, "y": -0.7, "z": -1.8, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+
+  {"name": "mesh_4", "w": 0.7,  "h": 0.4, "w_number": 10,  "h_number": 10, "x": -4,    "y": 1,    "z": 0,    "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_5", "w": 0.85, "h": 0.5, "w_number": 10,  "h_number": 10, "x": -5.5,  "y": -0.3, "z": 0.4,  "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_6", "w": 0.55, "h": 0.3, "w_number": 10,  "h_number": 10, "x": -4,    "y": -1.3, "z": 0,    "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+
+  {"name": "mesh_7", "w": 0.7,  "h": 0.4, "w_number": 10,  "h_number": 10, "x": 0,     "y": 0.52, "z": 1.8,  "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_8", "w": 0.85, "h": 0.5, "w_number": 10,  "h_number": 10, "x": 0,     "y": -0.1, "z": 1.8,  "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_9", "w": 0.55, "h": 0.3, "w_number": 10,  "h_number": 10, "x": 0.2,   "y": -0.81,"z": 1.8,  "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+
+  {"name": "mesh_10", "w": 0.7,  "h": 0.4, "w_number": 10, "h_number": 10, "x": 4,     "y": 1.2,  "z": 0,    "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_11", "w": 0.85, "h": 0.5, "w_number": 10, "h_number": 10, "x": 4,     "y": 0,    "z": -0.2, "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_12", "w": 0.55, "h": 0.3, "w_number": 10, "h_number": 10, "x": 4,     "y": -1.3, "z": 0.5,  "scale_x": 2, "scale_y": 2, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+
+  {"name": "mesh_13", "w": 0.7,  "h": 0.4, "w_number": 10, "h_number": 10, "x": -0.2,  "y": 2,    "z": 0.5,  "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_14", "w": 0.85, "h": 0.5, "w_number": 10, "h_number": 10, "x": 0,     "y": 2,    "z": -0.2, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_15", "w": 0.55, "h": 0.3, "w_number": 10, "h_number": 10, "x": 0,     "y":2,     "z": -0.8, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+
+  {"name": "mesh_16", "w": 0.7,  "h": 0.4, "w_number": 10, "h_number": 10, "x": 0,     "y": -2,   "z": -1,   "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_17", "w": 0.85, "h": 0.5, "w_number": 10, "h_number": 10, "x": 0,     "y": -2,   "z": -0.4, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0},
+  {"name": "mesh_18", "w": 0.55, "h": 0.3, "w_number": 10, "h_number": 10, "x": 0.28,  "y": -2,    "z": 0.4, "scale_x": 1, "scale_y": 1, "rotate_x": 0, "rotate_y": 0, "rotate_z": 0}
+]

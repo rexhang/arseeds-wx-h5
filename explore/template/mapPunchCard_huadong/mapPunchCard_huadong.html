@@ -1,0 +1,17 @@
+<div class="map-bg"></div>
+<div class="do">
+    <ul class="rex-cf">
+        <li ng-repeat="x in list" ng-click="getLocations(x.location.lng, x.location.lat, x.node_id, x.point, x.location.radius, x.is_sign, x.coupon_href)">
+            <img ng-src="{{x.icon}}" alt="" width="50" height="50" style="border-radius: 50%;">
+            <p>{{x.node_name}}</p>
+        </li>
+    </ul>
+</div>
+
+<div id="dakashibai" ng-show="dakashibai" ng-click="dakashibai = !dakashibai"></div>
+
+<div id="dakachenggong" ng-show="dakachenggong">
+    <div class="tips">获得一个 <img ng-src="{{sucIcon}}" alt="">{{icon_name}} </div>
+    <a class="link" href="https://sale.jd.com/m/act/gZaq35i0oQK2.html"></a>
+    <div class="sure" ng-click="dakachenggongFunction()"></div>
+</div>

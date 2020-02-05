@@ -1,0 +1,66 @@
+<div class="head">
+    <div class="center rex-cf">
+        <div class="left">
+            <a ng-href="#list">
+                <img src="./img/login/logo.png" alt="logo" width="50" height="50"><span>探索</span>
+            </a>
+        </div>
+        <div class="right">
+            <img ng-src="{{thumb_photo_url}}" alt="personal-logo" class="personal-logo" id="personal-logo" width="36" height="36">
+            <div class="menu">
+                <span class="triangle"></span>
+                <ul class="menu-list">
+                    <a ng-href="#setting">
+                        <li class="rex-cf">
+                            <i class="icon-setting"></i>
+                            <span>基础设置</span>
+                        </li>
+                    </a>
+                    <a href="javascript:;" ng-click="exit()">
+                        <li class="rex-cf">
+                            <i class="icon-exit"></i>
+                            <span>退出</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="tit">编辑识别图</div>
+    <div class="upload-shibietu-box">
+        <p class="p_name">识别图</p>
+        <div class="show rex-cf">
+            <div class="img-preview" id="img-preview">
+                <img src="" alt="" id="preview-box" width="188" height="188" style="display: none;">
+            </div>
+            <div class="btn-box">
+                <div class="btn-upload-shibietu" id="btn-upload-shibietu">
+                更 换
+                <input type="file" id="shibietu" ng-upload="uploads($value)" accept="image/jpeg">
+                </div>
+                <p class="upload-shibietu-doc">图片仅限JPG格式，大小不超过2M请上传边缘清晰主体明确的识别图</p>
+            </div>
+        </div>
+    </div>
+    <div class="btn-groups">
+        <div class="center-btn rex-cf">
+            <div class="btns btn-cancel" ui-sref="list()">取 消</div>
+            <div class="btns btn-sure" ng-click="save()">确 定</div>
+        </div>
+    </div>
+</div>
+
+<div class="crop-wrap" id="crop-wrap">
+    <div class="crop-modal">
+        <p class="edit-tit">编辑图片</p>
+        <p class="edit-resize">调整图片尺寸和位置</p>
+        <div class="show-init" id="show-init">
+            <img src="" id="show-img" alt="" width="240" height="240">
+        </div>
+        <div class="btn-save" id="btn-save">保 存</div>
+        <i class="close" id="close"></i>
+    </div>
+</div>

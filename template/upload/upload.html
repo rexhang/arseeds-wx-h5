@@ -1,0 +1,105 @@
+<!-- <a href="javascript:;" id="upload" class="rex-btn primary">点击上传</a>
+
+<br>
+
+<img id="show" src="" alt="" width="100" height="100" style="border: 0;display: none;">
+
+<br>
+
+<a href="javascript:;" id="post" class="rex-btn success">确认上传</a> -->
+
+<style>
+.wrap>img{
+	width: 100%;
+}
+.content{
+	box-sizing: border-box;
+	padding: 0 1rem;
+}
+textarea{
+	width: 100%;
+	height: 3rem;
+	overflow:hidden;
+	resize:none;
+	border-radius: 0.2rem;
+	box-sizing: border-box;
+	padding: 0.2rem;
+	font-size: 0.4rem;
+}
+.content>p{
+	margin:0.5rem 0;
+	font-size: 0.5rem;
+}
+.content>div{
+	width: 55%;
+	height: 01rem;
+	font-size: 0.45rem;
+	line-height: 1rem;
+	border-radius: 1rem;
+	text-align: center;
+	margin: 1rem auto;
+	border:1px solid #2765d3;
+	color: #2765d3;
+}
+#upload{
+	width: 3rem;
+	height: 3rem;
+}
+#upload{
+	border: 1px dashed #666;
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+	float: left;
+}
+#upload .transverse{
+	width: 70%;height: 70%;
+	border: 0;
+	border-top: 1px dashed #666;
+	position: absolute;
+	left: 15%;
+	top: 50%;
+}
+#upload .vertical{
+	width: 70%;height: 70%;
+	border: 0;
+	border-top: 1px dashed #666;
+	position: absolute;
+	right: 50%;
+	top: 15%;
+	transform: rotate(90deg)
+}
+#show{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 8px;
+	float: left;
+	margin-right: 1rem;
+}
+.container-upload{
+	width: 100% !important;
+	height: auto !important;
+	font-size: 0.45rem !important;
+	line-height: auto !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+}
+</style>
+<div class="wrap">
+	<img src="./img/schoolActivity/update.png" alt="">
+	<div class="content">
+		<p>我的青春宣言</p>
+		<textarea placeholder='说出你的青春宣言' id="textarea-content"></textarea>
+		<p>我的青春瞬间</p>
+		<div class="container-upload rex-cf">
+			<img src="./img/schoolActivity/clickMe.png" id="show" style="display: none;" alt="">
+			<div id="upload">
+				<div class="transverse"></div>
+				<div class="vertical"></div>
+			</div>	
+		</div>
+		
+		<div id="post">发布</div>
+	</div>
+</div>

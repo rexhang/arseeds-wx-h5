@@ -1,0 +1,158 @@
+<style type="text/css">
+body{
+background-color: #f9f9f9;
+}
+ul li{
+    list-style: none;
+}
+input{
+width: 100%;
+height: 30px;
+}
+input:-webkit-autofill{
+box-shadow: 0 0 0 38px white inset;
+}
+button{
+width: 60px;
+height: 30px;
+}
+.nav{
+margin: 0 auto;
+margin-top: 180px;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+ul{
+color: #999;
+width: 410px;
+height: auto;
+margin: 0 auto;
+background-color: #fff;
+box-shadow: 2px 2px 12px #f1f1f1;
+display: block;
+}
+li{
+position: relative;
+}
+li input, li button{
+outline: none;
+}
+.one{
+font-size: 16px;
+color: #222;
+margin-bottom: 28px;
+padding-top: 36px;
+}
+.user, .pass{
+width: 350px;
+height: 50px;
+line-height: 50px;
+font-size: 14px;
+text-indent: 46px;
+border: 1px solid #ccc;
+}
+.pass{
+border-top: 0;
+}
+.loginIn{
+width: 350px;
+height: 50px;
+line-height: 50px;
+font-size: 16px;
+color: #fff;
+background-color: #ec0014;
+border: 0;
+cursor: pointer;
+box-shadow: 2px 2px 6px #ccc;
+margin-bottom: 50px;
+margin-top: 10px;
+border-radius: 3px;
+outline: none;
+}
+.loginIn:hover{
+opacity: 0.8;
+}
+.code{
+width: 115px;
+height: 50px;
+line-height: 50px;
+font-size: 14px;
+margin-bottom: 30px;
+border: 1px solid #ccc;
+text-indent: 14px;
+float: left;
+}
+.codeImg{
+width: 115px;
+height: 50px;
+border: 1px solid #ccc;
+float: left;
+margin-left: 10px;
+}
+.change{
+font-size: 14px;
+color: #80ccff;
+text-decoration: none;
+margin-left: 10px;
+}
+.userIcon, .passIcon{
+background: url('./img/登录/yonghu.png') no-repeat;
+background-size: 100% 100%;
+background-position: center center;
+display: inline-block;
+width: 20px;
+height: 20px;
+position: absolute;
+left: 14px;
+top: 15px;
+}
+.passIcon{
+background: url('./img/登录/suo.png') no-repeat;
+}
+.slide-to-unlock-handle{
+width: 50px !important;
+}
+.slide-to-unlock-progress{
+height: 48px !important;
+border: 0 !important;
+}
+..slide-to-unlock-bg{
+border: 0 !important;
+}
+.slide-to-unlock-handle{
+position: relative;
+}
+.slide-to-unlock-handle:hover{
+background-color: #ff8a65 !important;
+}
+.slide-to-unlock-handle:after{
+content: '';
+position: absolute;
+left: 19px;
+top: 21px;
+width: 14px;
+height: 10px;
+background-image: url(https://cstaticdun.126.net/2.2.2/images/icon_light.c8c40c2.png);
+background-position: 0 0;
+background-size: 34px 431px;
+overflow: hidden;
+}
+.slide-to-unlock-handle:hover:after{
+background-position: 0 -26px;
+}
+</style>
+<section>
+    <div class="nav">
+        <div style="text-align: center;font-weight: normal;margin-bottom: 74px;font-size: 32px;color: #afafaf;">京东华中签到行<br>后台管理系统</div>
+        <ul>
+            <li class="one">登录</li>
+            <li><i class="userIcon"></i><input class="user" ng-model='name' autocomplete="off" placeholder="账号" maxlength="16"></input></li>
+            <li><i class="passIcon"></i><input class="pass" type="passWord" autocomplete="off" ng-model='passWord' maxlength="16" placeholder="密码"></input></li>
+            <li style="width: 350px;height: 50px;line-height: 50px;margin-top: 10px;"><div id="foo" style="height: 50px;"></div></li>
+            <li><button class="loginIn" type="" ng-click="login()">登录</button></li>
+        </ul>
+    </div>
+</section>

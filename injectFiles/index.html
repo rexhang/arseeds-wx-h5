@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" data-ng-app="wxApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta author="rexhang">
+    <title data-ng-bind="set.$state.current.data.pageTitle">angular-ui-router</title>
+    <!-- page：rexhang | blog：http://rexhang.com/blog (admin@rexhang.com) | date：2017-04-14 12:06:50 -->
+    <script type="text/javascript" src="./ng-js/angular.min.js"></script>
+    <script type="text/javascript" src="./ng-js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.js"></script>
+    <script type="text/javascript">$.noConflict();</script>
+    <script rel="stylesheet" type="text/css" src="./lib/zepto.js"></script>
+    <script rel="stylesheet" type="text/css" src="./lib/layer.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=1e84f66a8d14e1f90c1b518665ff0b82"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/compile_sass/common.css">
+    <link rel="stylesheet" href="/css/rex-ui.css">
+    <!-- endinject -->
+
+    <!-- 插件样式 -->
+    <link rel="stylesheet" type="text/css" href="./lib/layer.css">
+    <style>
+    /*添加媒体查询适配大部分手机浏览器*/
+    html,body{min-height: 100% !important;min-width: 100%  !important;}
+
+@media screen and (max-width: 750px) {html{  font-size:54px !important;}.middle{ max-width:750px;}}
+
+@media screen and (max-width: 435px) {html{  font-size:43px !important;;}}
+
+@media screen and (max-width: 414px) {html{  font-size:40px !important;}}
+
+@media screen and (max-width: 375px) {html{  font-size:37.5px !important;;}}
+
+@media screen and (max-width: 360px) {html{  font-size:36px !important;;}}
+
+@media screen and (max-width: 320px) {html{  font-size:32px !important;;}}
+    </style>
+</head>
+<body data-ng-controller="rootController" class="{{bodyclass}}">
+    <div data-ui-view class="rex-cf uiview">
+        <!-- 路由内容填充处 -->
+    </div>
+    
+    <!-- inject:js -->
+    <script src="/app.js"></script>
+    <script src="/factory.app.js"></script>
+    <script src="/template/about/about.Controller.js"></script>
+    <script src="/template/punchCard/punchCard.Controller.js"></script>
+    <script src="/template/shop/shop.Controller.js"></script>
+    <script src="/template/whitedeer/whitedeer.Controller.js"></script>
+    <!-- endinject -->
+    <script>
+        jQuery(document).ready(function() {
+            // 这里是使用 jQuery $ 的代码, 避免了zepto和jQuery的冲突, 使用jQuery方法 用jQuery代替$
+        });
+    </script>
+</body>
+</html>

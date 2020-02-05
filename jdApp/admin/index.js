@@ -1,0 +1,9 @@
+require('./template/login/login.js'),
+require('./template/card/card.js')
+require('./template/prize/prize.js')
+require('./template/index/index.js')
+require('./template/gift/gift.js')
+require('./template/set/set.js')
+require('./template/newCard/newCard.js')
+require('./template/newCoupon/newCoupon.js')
+require('./template/newGift/newGift.js')

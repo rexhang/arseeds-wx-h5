@@ -1,0 +1,318 @@
+<style>
+	.wrap{
+		background: #f2f2f2;
+	}
+	/*头部样式*/
+	header{
+		font-size: 0;
+		position: relative;
+	}
+	header img{
+		width: 100%;
+	}
+	.headerContent{
+		width: 77%;
+		height: 2rem;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		left: 0;
+		bottom: 0.42rem;
+	}
+	.headerContent>p{
+		width: 100%;
+		height: 1.2rem;
+		font-size: 0.5rem;
+		line-height: 1.2rem;
+		background:url('./img/schoolActivity/joyBackground.png') center center no-repeat;
+		background-size: 100% 100%;
+		text-align: center;
+		color: white;
+	}
+	.headerContent>div{
+		width: 100%;
+		line-height: 1rem;
+		display: flex;
+		justify-content:space-between;
+	}
+	.headerContent>div a{
+		text-decoration: underline;
+		font-size: 0.4rem;
+		color:#27a1ef;
+		font-weight: 800;
+	}
+	/*今日任务样式*/
+	.mission{
+		box-sizing: border-box;
+		padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+		background: white;
+		margin: 0.35rem 0;
+	}
+	.missionTitle{
+		color: #333333;
+		font-size: 0.4rem;
+		line-height: 0.5rem;
+	}
+	.missionTitle span{
+		font-size: 0.5rem;
+		margin-right: 0.2rem;
+		font-weight: 600;
+	}
+	.missionContent{
+		margin:0.5rem 0;
+		font-size: 0;
+	}
+	.missionContent li{
+		font-size: 0.4rem;
+	}
+	.missionContent li>div{
+		width: 80%;
+		display: flex;
+		align-items: center;
+	}
+	.missionContent li>div img{
+		width: 1.5rem;
+		margin-right:0.3rem;
+	}
+	/*获奖状态样式*/
+	.have_prize{
+		text-align: center;
+		font-size: 0.4rem;
+		line-height: 0.6rem;
+		background: white;
+		margin: 0.35rem 0;
+		padding: 0.5rem 0;
+		box-sizing: border-box;;
+
+	}
+	.have_prize img{
+		width: 1rem;
+		margin-right: 0.2rem;
+
+	}
+	.have_prize li {
+		margin-bottom: 0.2rem;
+	}
+	/*未获奖状态样式*/
+	.without{
+		text-align: center;
+		font-size: 0.4rem;
+		margin: 0.35rem 0;
+		box-sizing: border-box;
+		padding: 0.5rem 0;
+		background: white;
+	}
+	.without li{
+		margin-bottom: 0.2rem;
+	}
+	.without img{
+		width: 1rem;
+		margin-right: 0.2rem;
+		vertical-align: middle;
+	}
+
+	/*点击查看缘分样式*/
+	.luck{
+		box-sizing: border-box;
+		padding: 0.3rem 0.6rem 0.4rem 0.6rem;
+		background: white;
+		margin-bottom: 0.35rem ;
+	}
+	.luck>img{
+		width: 100%;
+	}
+	.luck>div{
+		display: flex;
+		justify-content: space-around;
+	}
+	.luck>div>p{
+		display: inline-block;
+		width:40%;
+		text-align: center;
+		height:1.1rem;
+		font-size: 0.45rem;
+		line-height: 1.1rem;
+		border-radius: 1.1rem;
+		color:#2765d3;
+		border:1px solid #2765d3;
+	}
+	/*活动现场样式*/
+	.activity{
+		padding: 0.3rem 0 0.3rem 0.5rem;
+		color: white;
+		background:white;
+		text-align: center;
+	}
+	.activity>p{
+		font-size: 0.5rem;
+		text-align: left;
+		color: #666;
+	}
+	.activity_content li{
+		width: 4.2rem;
+		height: 4.2rem;
+		display: inline-block;
+		margin: 0.2rem 0;
+		overflow: hidden;
+		border-radius: 0.2rem;
+		position: relative;
+	}
+	.activity_content li:nth-child(2n+1){
+		margin-right:0.4rem;
+	}
+
+	.activity_content li p{
+		text-align:left;
+	}
+	.activity_content li>img{
+		width: 100%;
+	}
+	.userInfo{
+		text-align: left;
+		width: 100%;
+		background:rgba(0,0,0,0.5);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		padding:0.15rem 0.2rem;
+	}
+	.userInfo img{
+		width: 1rem;
+		height: 1rem;
+		border-radius: 50%;
+		border: 2px solid white;
+		margin-right: 0.2rem;
+	}
+	.userInfo div{
+		display: inline-block;
+	}
+	.userInfo p{
+		width: 2.5rem;
+		overflow:hidden; /* 溢出隐藏 */
+        white-space:nowrap; /* 规定段落中的文本不进行换行 */
+        text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+	}
+	button{
+		width: 4rem;
+		height: 1.1rem;
+		background:white;
+		border-radius: 1rem;
+		font-size: .4rem;
+		color: #2756d3;
+	}
+	.popUp{
+		display: none;
+	}
+
+
+
+	/*添加现场活动新样式*/
+	.activityChild{
+		overflow: hidden;
+	}
+	.activityChild li{
+		display: flex;
+		align-items: center;
+		color: #666666;
+	}
+	.activityChild li:after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+	.activityChild img{
+		width: 1.2rem;
+		height: 1.2rem;
+		border-radius: 50%;
+		margin-right: 0.2rem;
+	}
+	.activityChild .right{
+		width: 100%;
+		text-align: left;
+		float:right;
+		display: inline-block;
+		font-size: 0.4rem;
+		overflow:hidden; /* 溢出隐藏 */
+		white-space:nowrap; /* 规定段落中的文本不进行换行 */
+		text-overflow:ellipsis; /* 文本溢出时 显示省略符号来代表被修剪的文本 */
+		height: 1.2rem;
+		line-height: 1.2rem;
+		padding: 0.3rem 0;
+		border-bottom:1px solid #d7d7d7;
+	}
+</style>
+<div class='wrap'>
+	<header>
+		<img src="./img/schoolActivity/dingtu@2x.png" alt="">
+		<div class="headerContent">
+			<p>已获得{{+my.count}}只JOY，排名{{+my.rank}}</p>
+			<div><a href="" ui-sref='case' >活动规则</a><a href="" ui-sref='case'>分享页面可以获得更多JOY哦~</a></div>
+		</div>
+	</header>
+	<div class="content">
+		<!-- 今日任务 -->
+		<div class="mission" ng-show='runs'>
+			<div class="missionTitle"><span>今日任务</span>每天0:00刷新数据</div>
+			<ul class="missionContent">
+				<li><div><img src="./img/schoolActivity/map.png" alt="" ng-click="goPunchiCard()"><div>地点寻宝 ({{+index}} / {{+length}} )</div></div></li>
+			</ul>
+		</div>
+		<!-- 获奖状态 -->
+		<ul class="have_prize" ng-if='coupon.length > 0 && playing == "stop"'>
+			<li><img src="./img/schoolActivity/prize.png" alt=""><span style="color:#ffb557;position:relative;bottom:0.3rem;">恭喜你获得1等奖！</span></li>
+			<li>兑换码：<span style="color:#ffb557">{{coupon.coupons_ids_id}}</span>，请前往线下兑换</li>
+			<li>活动已结束，您获得x只JOY，排名1</li>
+		</ul>
+		<!-- 未获奖状态 -->
+		<ul class="without" ng-if='coupon.length == 0 && playing == "stop"'>
+			<li><img src="./img/schoolActivity/cry.png" alt="">很可惜没能获得奖品，下次继续努力！</li>
+			<li>活动已经结束，您获得48只JOY，排名7</li>
+		</ul>
+		<!-- 点击查看缘分 -->
+		<div class='luck'>
+			<img ng-click='luck()' src='./img/schoolActivity/luck1.png' alt="">
+			<div><p ng-click='prizeList()'>奖品列表</p><p ng-click='runk()'>活动榜单</p></div>
+		</div>
+		<!-- 现场活动 -->
+		<div class="activity">
+		<p>活动现场</p>
+			<!-- <div>//图片展示
+				<ul class='activity_content'>
+					<li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=933728234,2149479729&fm=23&gp=0.jpg" alt=""><div class="userInfo"><img src="http://dl.bizhi.sogou.com/images/2012/03/14/124196.jpg" alt=""><div><p>姓名</p>
+					<p>时间</p></div></div></li>
+				</ul>
+			</div>
+			<button> 查看全部照片</button> -->
+			<div class="activityChild">
+				<ul >
+					<li ng-repeat='item in lists'>
+						<img ng-src="{{item.thumb_photo}}" alt="">
+					  <div class="right">
+						<span>{{item.nick_name}}</span>
+						<span>{{item.create_time}}</span>
+						<span>{{item.msg}}</span>
+				  	</div>
+				</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<img src='./img/schoolActivity/boxSchool.png' style='width:100%' alt="">
+</div>
+<!--实现页面弹窗 -->
+<div class="popUp">
+	<div class="content">
+	    <ul id="modal">
+	    <li>绑定手机即可参与活动</li>
+	    <li><span>手机号</span><div><input  type="number"  ng-model='phone' placeholder='仅限大陆手机号'></div></li>
+	    <li><span>验证码</span><div><input type="text" ng-model='num'><span id="send-code" ng-click='send($event)'>{{send_txt}}</span></div></li>
+	    <li>
+	    <p class='hint'>手机号不合规或验证码错误！</p>
+	    <button ng-click='ligate()'>绑&nbsp&nbsp&nbsp&nbsp定</button>
+	    </li>
+	    </ul>
+	    <img  ng-click='cardShow()' class='clear' src="./img/whitedeer/clear.png" alt="">
+	</div>
+</div>

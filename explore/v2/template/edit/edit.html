@@ -1,0 +1,193 @@
+<div class="head">
+    <div class="center rex-cf">
+        <div class="left">
+            <a ng-href="#list">
+                <img src="./img/login/logo.png" alt="logo" width="50" height="50"><span>探索</span>
+            </a>
+        </div>
+        <div class="right">
+            <img ng-src="{{thumb_photo_url}}" alt="personal-logo" class="personal-logo" id="personal-logo" width="36" height="36">
+            <div class="menu">
+                <span class="triangle"></span>
+                <ul class="menu-list">
+                    <a ng-href="#setting">
+                        <li class="rex-cf">
+                            <i class="icon-setting"></i>
+                            <span>基础设置</span>
+                        </li>
+                    </a>
+                    <a href="javascript:;" ng-click="exit()">
+                        <li class="rex-cf">
+                            <i class="icon-exit"></i>
+                            <span>退出</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="tit">创建项目</div>
+    <div class="upload-shibietu-box">
+        <p class="p_name">识别图</p>
+        <div class="show rex-cf">
+            <div class="img-preview" id="img-preview">
+                <img src="" alt="" id="preview-box" width="188" height="188" style="display: none;">
+            </div>
+            <div class="btn-box">
+                <div class="btn-upload-shibietu" id="btn-upload-shibietu">
+                上 传
+                <input type="file" id="shibietu" accept="image/jpeg">
+                </div>
+                <p class="upload-shibietu-doc">图片仅限JPG格式，大小不超过2M请上传边缘清晰主体明确的识别图</p>
+            </div>
+        </div>
+    </div>
+    <div class="result-box">
+        <div class="action-btn rex-cf" id="action-btn">
+            <span class="tit-doc">识别结果:</span>
+            <div class="ctrl-center rex-cf" id="ctrl-center">
+                <div class="nav nav-item sel">
+                    <i class="icon-sel"></i>
+                    <span>图文音</span>
+                </div>
+                <div class="nav nav-item">
+                    <i class="icon-sel"></i>
+                    <span>视频 / 透明通道视频</span>
+                </div>
+                <div class="nav nav-item">
+                    <i class="icon-sel"></i>
+                    <span>3D</span>
+                </div>
+            </div>
+            <div id="group-box">
+                <div class="mix-box" id="mix-box">
+                    <p class="mix-tit">标题</p>
+                    <input type="text" placeholder="请输入标题" maxlength="20" class="input-content" ng-model="resultTitle">
+                    <p class="mix-tit">内容</p>
+                    <div class="editor-box">
+                        <!-- 分离式结构 -->
+                        <div id="e-menu" class="toolbar">
+                        </div>
+                        <p class='pleaseInput'>请在下面输入区录入图文内容</p>
+                        <div id="e-content" class="text"></div>
+                    </div>
+                    <div class="bgm-box rex-cf" id="bgm-box">
+                        <i class="icon-sel"></i>
+                        <span>背景音乐</span>
+                    </div>
+                    <div class="upload-bgm rex-cf" id="upload-bgm">
+                        <div class="btn btn-upload" id="btn-upload-font">上传背景音乐</div>
+                        <span class="doc">格式支持mp3、wma、wav、amr, 支持大小不超过5MB, 时长不超过5分钟</span>
+                    </div>
+                    <!-- 上传背景音乐部分 -->
+                    <div class="uploader-bgm">
+                        <div id="uploader-demo">
+                                <div id="fileName"></div>
+                                <div class="progress-box" id="progress-box">
+                                    <div class="progress-center"></div>
+                                    <span class="text">0</span>
+                                </div>
+                                <div id="filePicker" ng-hide='true'>选择图片</div>
+                                <button id="uploadBtn" class="rex-btn success" ng-hide="true">开始上传</button>
+                                <button id="cancelBtn" class="rex-btn error">取消上传</button>
+                                <div class="fullName rex-cf" id="fullName">
+                                    <i class="icon-music"></i>
+                                    <span class="music-name"></span>
+                                    <span class="music-timer"></span>
+                                    <div id="btn-upload-font2" class="rex-btn error">重新上传</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-box" id="video-box">
+                    <div class="upload-video-btn" id="upload-video-btn">上传视频</div>
+                    <div id="trigger-video" ng-hide="true"></div>
+                    <p class="doc">视频文件大小不超过100MB，时长不超过3分钟，支持mov、mp4视频格式。</p>
+                    <div class="uploader-video" id="uploader-video">
+                        <div class="fileName-video"></div>
+                        <div class="progress-box">
+                            <div class="progress-center"></div>
+                            <span class="text">0%</span>
+                        </div>
+                        <button class="rex-btn error cancel-btn">取消上传</button>
+                    </div>
+                    <div id="success-video-box">
+                        <div class="video-init">
+                            <video id="play-video" autobuffer controls autoloop loop poster="./img/edit/poster.png"></video>
+                        </div>
+                        <span id="success-video-name"></span>
+                        <span class="timers">时长: <span id="success-video-timer"></span></span>
+                        <span class="sizes">大小: <span id="success-video-size"></span>M</span>
+                        <div id="uploader-video-again">重新上传</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="new-block" ng-show="extVideo">
+                        <div class="upload-video-btn" id="upload-movmp4">
+                            <font>上传MP4格式视频</font>
+                            <input type="file" name="uploadMovmp4" class="uploadMovmp4" accept="video/mp4" ng-upload="uploadMovmp4($value)">
+                        </div>
+                        <p class="movmp4">上传代替MOV视频进行分享的MP4格式视频(仅针对透明通道开放)</p>
+                        <video ng-show="uploadMovmp4FileSrc" ng-src="{{uploadMovmp4FileSrc}}" id="uploadMovmp4" width="400" height="240" style="margin-top: 42px;background-color: #000" autobuffer controls autoloop loop poster="./img/edit/poster.png"></video>
+                        <p class="fileName" ng-show="uploadMovmp4FileName">{{uploadMovmp4FileName}}</p>
+                        <p class="fileSize" ng-show="uploadMovmp4FileSize">大小: {{uploadMovmp4FileSize}}M</p>
+                        <p class="fileTime" ng-show="uploadMovmp4FileTime">时长: {{uploadMovmp4FileTime}}</p>
+                    </div>
+                </div>
+                <div class="box-3d" id="box-3d">
+                    <div class="upload-3d-btn" id="android-box">
+                        <font>上传3D模型包 ( android )</font>
+                        <input type="file" name="android" id="androidResource" class="android" accept="application/x-zip-compressed" ng-upload="upload3dForAndroid($value)">
+                    </div>
+                    <div class="showFileInfo">
+                        <p class="fileName rex-text-overflow" title="{{android_3dfileName}}" ng-show="android_3dfileName">文件名: {{android_3dfileName}}</p>
+                        <p class="fileSize rex-text-overflow" title="{{android_3dfileSize}}" ng-show="android_3dfileSize">大小: {{android_3dfileSize}}M</p>
+                    </div>
+                    <br>
+                    <div class="upload-3d-btn upload-3d-btn2" id="ios-box">
+                        <font>上传3D模型包 ( ios )</font>
+                        <input type="file" name="ios" id="iosRsource" class="ios" accept="application/x-zip-compressed" ng-upload="upload3dForIos($value)">
+                    </div>
+                    <div class="showFileInfo">
+                        <p class="fileName rex-text-overflow" title="{{ios_3dfileName}}" ng-show="ios_3dfileName">文件名: {{ios_3dfileName}}</p>
+                        <p class="fileSize rex-text-overflow" title="{{ios_3dfileSize}}" ng-show="ios_3dfileSize">大小: {{ios_3dfileSize}}M</p>
+                    </div>
+                    <p class="doc">仅限zip格式，大小不超过10MB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="upto-link">
+        <p class="link-tit">跳转链接</p>
+        <div class="link-name rex-cf">
+            <i class="icon-sel"></i>
+            <span class="is-linkname">链接名称: </span>
+            <input type="text" ng-model="linkName" maxlength="20" placeholder="请输入20个文字以内的链接名称，点击链接名称即可跳转链接">
+        </div>
+        <div class="link-address rex-cf">
+            <span class="is-linkaddress">链接地址: </span>
+            <input type="text" ng-model="linkContent" placeholder="http://">
+        </div>
+    </div>
+    <div class="btn-groups">
+        <div class="center-btn rex-cf">
+            <div class="btns btn-cancel" ui-sref="list()">取 消</div>
+            <div class="btns btn-sure" ng-click="createNew()">确 定</div>
+        </div>
+    </div>
+</div>
+
+<div class="crop-wrap" id="crop-wrap">
+    <div class="crop-modal">
+        <p class="edit-tit">编辑图片</p>
+        <p class="edit-resize">调整图片尺寸和位置</p>
+        <div class="show-init" id="show-init">
+            <img src="" id="show-img" alt="" width="240" height="240">
+        </div>
+        <div class="btn-save" id="btn-save">保 存</div>
+        <i class="close" id="close"></i>
+    </div>
+</div>

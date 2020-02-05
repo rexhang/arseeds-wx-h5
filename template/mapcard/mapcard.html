@@ -1,0 +1,147 @@
+<style>
+body{
+	width:100%;
+	height: 100%;
+	background: #666;
+}
+.content{
+	width:2000px;
+	height: 1333px;
+	background: url('./img/whitedeer/location1.jpg') center center no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+/*display: none;*/
+}
+.content div{
+	width:20px;
+	height: 20px;
+	background:black;
+	color: red;
+}
+#map1{
+	position: absolute;
+bottom: 200px;
+left: 500px;
+}
+#map2{
+	position: absolute;	
+	top: 933px;
+	right: 1047px;
+}
+#map3{
+	position: absolute;
+	top: 813px;
+	right: 487px;
+}
+#map4{
+	position: absolute;
+	top: 547px;
+	right: 433px;
+
+}
+#map5{
+	position: absolute;
+	top: 320px;
+	right: 693px;
+
+}
+img{
+	width: 2rem;
+}
+
+
+
+/*弹窗*/
+     .play_alert{
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding:0.5rem 0;
+            background: rgba(255,255,255,0.9);
+            text-align: center;
+        	 z-index: 100;
+        }
+        .titleImg,.play_alert>p:nth-of-type(3),.play_alert>p:nth-of-type(4){
+            margin-bottom: 0.3rem;
+            font-size: 0.4rem;
+        }
+        .play_alert>p:nth-of-type(2){
+            font-size: 0.45rem;
+            margin-bottom:0.3rem;
+        }
+        .titleImg img{
+            width: 1rem;
+        }
+        .prizeImg img{
+            width: 50%;
+        }
+        .clearImg img{
+            width: 45%;
+        }
+        .play_alert>div:nth-of-type(1){
+            font-size:0.45rem;
+            padding:0.2rem;
+        }
+        .play_alert>div:nth-of-type(2){
+            font-size:0.45rem;
+            padding:0.5rem 0;
+        }
+        .locationDog{
+            margin:auto;
+            position: fixed;
+            top: 2.5rem;
+            left: 0;
+            right: 0;
+            width: 70%;
+          /*  display: none;*/
+          z-index: 100;
+        }
+        .location{
+            position: fixed;
+            bottom: 0.55rem;
+            width: 100%;
+            z-index: 80;
+            text-align: center;
+        }
+        .location span{
+            width: 60%;
+            font-size: 0.35rem;
+            height: 0.8rem;
+            display: inline-block;
+            border-radius: 0.8rem;
+            line-height: 0.8rem;
+            color: white;
+            background: rgba(0,0,0,0.5)
+        }
+</style>
+<div class="content">
+<img id='map1' ng-click='actionDo(_provinces[4])' src="./img/whitedeer/clickDog.png" alt=""> 
+<img id='map2' ng-click='actionDo(_provinces[3])' src="./img/whitedeer/clickDog.png" alt="">
+<img id='map3' ng-click='actionDo(_provinces[2])' src="./img/whitedeer/clickDog.png" alt="">
+<img id='map4' ng-click='actionDo(_provinces[1])' src="./img/whitedeer/clickDog.png" alt="">
+<img id='map5' ng-click='actionDo(_provinces[0])' src="./img/whitedeer/clickDog.png" alt="">
+</div>
+
+ <div class="location"><span>到达指定位置点击抓取JOY</span></div>
+    <!-- 点击打卡出现弹窗 -->
+    <div id="id1" class="play_alert" style="display: none;">
+        <p id="id2" class='titleImg'><img src="./img/whitedeer/ok.png" alt=""></p>
+
+        <p id="id3" class="success" style="display: none;">打卡成功</p>
+        <p id="id4" class="success" style="display: none;">增加一只JOY，获得一张京东优惠劵</p>
+        <div id="id5" style="display: none;" class="repeat ">获得一张京东优惠劵</div>
+        <div id="id6" class="fail" style="display: none;"></div>
+
+        <p id="id7" ng-click="pageto()" class="success repeat prizeImg" style="display: none;"><img src="./img/whitedeer/discount.png" alt=""></p>
+        <p class='clearImg' ng-click='close()'><img src="./img/whitedeer/know.png" alt=""></p>
+    </div>
+    <img class='locationDog' style="display: none;" src="./img/whitedeer/localtionDog.gif" alt="" >
+
+
+    <script type="text/javascript">
+        
+        
+
+    </script>
+

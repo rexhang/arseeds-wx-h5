@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <style type="text/css">
+    html,body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-user-select: none; 
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .videobox {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+    }
+
+    video {width: 1px;display: blcok;}
+
+    /*
+    注：html，body里的overflow：hidden，非常重要，不能省。
+    因为微信android的播放器是脱离DOM结构的，也不会响应click、touch等事件。
+    如果视频尺寸大了，会产生滚动条，必须在html和body加overflow：hidden，
+    在videobox加没用的。
+    */
+   </style>
+</head>
+<body>
+    <div class="videobox">
+        <video id="mainvideo" webkit-playsinline="true" src="1.mp4"></video>
+    </div>
+    <script type="text/javascript">
+        var video = document.querySelector('#mainvideo');
+         var videobox = document.querySelector('.videobox');
+
+         //播放时改变外层包裹的宽度，使video宽度增加，
+         //相应高度也增加了,播放器控件被挤下去，配合overflow：hidden
+         //控件看不见也触摸不到了
+         var setVideoStyle = function (){
+           videobox.style.width = '120%';
+           videobox.style.left = '-10%';
+           video.style.width = '100%';
+         }
+         document.addEventListener("WeixinJSBridgeReady", function (){ 
+             video.play();
+             video.pause();
+         }, false)
+    </script>
+</body>
+</html>

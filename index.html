@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html data-ng-app="wxApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- 设定字符编码集 -->
+    <meta http-equiv="Content-Language" content="zh-Hans-CN"><!-- 大陆地区使用的简体中文 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><!-- 使用最新渲染引擎渲染网页 -->
+    <meta http-equiv="Pragma" content="no-cache"><!-- 不缓存到计算机，达到禁止脱机浏览 -->
+    <meta name="renderer" content="webkit"><!-- 如果360浏览器 使用webkit（极速）内核渲染 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"><!-- 百度转码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content=""><!-- 描述信息 -->
+    <meta name="keywords" content=""><!-- 关键词信息 -->
+    <meta name="author" content="rexhang"><!-- 作者信息 -->
+    <title data-ng-bind="set.$state.current.data.pageTitle">正在加载中喔~~~</title>
+    <!-- page：rexhang | blog：http://rexhang.com/blog (admin@rexhang.com) | date：2017-04-14 12:06:50 -->
+    <script type="text/javascript" src="./ng-js/angular.min.js"></script>
+    <script type="text/javascript" src="./ng-js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="./lib/ocLazyLoad.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.js"></script>
+    <!-- 轮播图插件 -->
+    <script type="text/javascript" src="./lib/swiper.js"></script>
+    <script>
+        !function(e){function t(){var t=o.getBoundingClientRect().width;t/i>750&&(t=750*i),e.rem=t/16,o.style.fontSize=e.rem+"px"}var i,a,n,r=e.document,o=r.documentElement,l=r.querySelector('meta[name="viewport"]'),m=r.querySelector('meta[name="flexible"]');if(l){var s=l.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);s&&(a=parseFloat(s[2]),i=parseInt(1/a))}else if(m){var s=m.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);s&&(i=parseFloat(s[2]),a=parseFloat((1/i).toFixed(2)))}if(!i&&!a){var d=(e.navigator.appVersion.match(/android/gi),e.navigator.appVersion.match(/iphone/gi));i=e.devicePixelRatio,i=d?i>=3?3:i>=2?2:1:1,a=1/i}if(o.setAttribute("data-dpr",i),!l)if(l=r.createElement("meta"),l.setAttribute("name","viewport"),l.setAttribute("content","initial-scale="+a+", maximum-scale="+a+", minimum-scale="+a+", user-scalable=no"),o.firstElementChild)o.firstElementChild.appendChild(l);else{var c=r.createElement("div");c.appendChild(l),r.write(c.innerHTML)}e.dpr=i,e.addEventListener("resize",function(){clearTimeout(n),n=setTimeout(t,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(n),n=setTimeout(t,300))},!1),t()}(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/swiper.css">
+    <script type="text/javascript">$.noConflict();</script>
+    <script rel="stylesheet" type="text/css" src="./lib/zepto.js"></script>
+    <script rel="stylesheet" type="text/css" src="./lib/layer.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=1e84f66a8d14e1f90c1b518665ff0b82"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/layer.css">
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <style>
+        /*添加媒体查询适配大部分手机浏览器*/
+        html,body{min-height: 100% !important;min-width: 100%  !important;}
+
+        @media screen and (max-width: 750px) {html{  font-size:54px !important;}.middle{ max-width:750px;}}
+
+        @media screen and (max-width: 435px) {html{  font-size:43px !important;}}
+
+        @media screen and (max-width: 414px) {html{  font-size:40px !important;}}
+
+        @media screen and (max-width: 375px) {html{  font-size:37.5px !important;}}
+
+        @media screen and (max-width: 360px) {html{  font-size:36px !important;}}
+
+        @media screen and (max-width: 320px) {html{  font-size:32px !important;}}
+    </style>
+</head>
+<body data-ng-controller="rootController" class="{{bodyclass}}" ontouchstart="">
+    <div data-ui-view class="rex-cf uiview" id="ui-view">
+        <!-- 路由内容填充处 -->
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="./webpack_build/bundle.js"></script>
+    <!-- inject:js -->
+    <!-- endinject -->
+    <script>
+        // ID选择器
+        function _selID(id){
+            return document.querySelector(id);
+        };
+        /**
+         * [_jsonToStr 对象数据字符串化]
+         * @param  {[type]} res [description]
+         * @return {[type]}     [description]
+         */
+        function _jsonToStr(res){
+            return window.JSON.stringify(res);
+        };
+        var urlConfig = {
+            'm.arseeds.com': {
+                'online': 'https://interface.arseeds.com',
+                'online_exchange': 'https://api.arseeds.com'
+            },
+            'interface.arseeds.com': {
+                'online': 'https://interface.arseeds.com',
+                'online_exchange': 'https://api.arseeds.com'
+            },
+            'www.arseeds.com': {
+                'online': 'https://interface.arseeds.com',
+                'online_exchange': 'https://api.arseeds.com'
+            },
+            '60.205.148.16:8080': {
+                'online': 'http://60.205.148.16:8080',
+                'online_exchange': 'http://60.205.148.16'
+            },
+            'localhost:9999': {
+                'online': 'http://60.205.148.16:8080',
+                'online_exchange': 'http://60.205.148.16'
+            },
+            '192.168.1.127:9999': {
+                'online': 'http://60.205.148.16:8080',
+                'online_exchange': 'http://60.205.148.16'
+            }
+        };
+        var nowUrl = urlConfig[window.location.host];
+        var console_table = [
+            {'host': window.location.host, 'online': nowUrl.online, 'online_exchange': nowUrl.online_exchange}
+        ];
+        console.table(console_table);
+
+        jQuery(function(){
+            console.log('这里是使用 jQuery $ 的代码, 避免了zepto和jQuery的冲突, 使用jQuery方法 用jQuery代替$');
+            // 请求微信JS-SDK配置信息
+            jQuery.getJSON('./wx_test/api.php?url='+encodeURIComponent(location.href.split('#')[0])+'&base_url='+nowUrl.online_exchange, function(data){
+                if(data.code == 200){
+                    var res = data;
+                    /*成功之后配置微信*/
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: res.appid, // 必填，公众号的唯一标识
+                        timestamp: res.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: res.nonceStr, // 必填，生成签名的随机串
+                        signature: res.signature,// 必填，签名，见附录1
+                        jsApiList: [
+                                'checkJsApi',
+                                'onMenuShareTimeline',
+                                'onMenuShareAppMessage',
+                                'onMenuShareQQ',
+                                'onMenuShareWeibo',
+                                'onMenuShareQZone',
+                                'hideMenuItems',
+                                'showMenuItems',
+                                'hideAllNonBaseMenuItem',
+                                'showAllNonBaseMenuItem',
+                                'translateVoice',
+                                'startRecord',
+                                'stopRecord',
+                                'onVoiceRecordEnd',
+                                'playVoice',
+                                'onVoicePlayEnd',
+                                'pauseVoice',
+                                'stopVoice',
+                                'uploadVoice',
+                                'downloadVoice',
+                                'chooseImage',
+                                'previewImage',
+                                'uploadImage',
+                                'downloadImage',
+                                'getNetworkType',
+                                'openLocation',
+                                'getLocation',
+                                'hideOptionMenu',
+                                'showOptionMenu',
+                                'closeWindow',
+                                'scanQRCode',
+                                'chooseWXPay',
+                                'openProductSpecificView',
+                                'addCard',
+                                'chooseCard',
+                                'openCard'
+                              ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+                } else{
+                    console.alert('接口错误!');
+                }
+            });
+        });
+        // wx.ready(function () {
+        //     // 判断当前版本是否支持指定 JS 接口,支持批量判断,调试用
+        //     /*_selID('#checkJsApi').onclick = function () {
+        //         wx.checkJsApi({
+        //           jsApiList: [
+        //             'onMenuShareTimeline',
+        //             'chooseImage',
+        //             'uploadImage',
+        //             'downloadImage',
+        //             'openLocation',
+        //             'getLocation',
+        //             'scanQRCode'
+        //           ],
+        //           success: function (res) {
+        //             alert(_jsonToStr(res));
+        //           }
+        //         });
+        //     };*/
+        //     // 分享到朋友圈参数配置
+        //     var share_config = {
+        //         title: '京东吃货嘉年华-白鹿原站', // 分享标题
+        //         desc: '白鹿原AR寻宝，饕餮盛宴，宝藏大奖，京东优惠券，现场吃货券等你来探索！', // 分享描述
+        //         //link: 'https://interface.arseeds.com/wx_h5/index.html?author=guhang#/whitedeer', // 上线的时候https需要改为https
+        //         link: location.href.split(':')[0]+'://'+window.location.host +'/wx_h5/index.html?author=guhang#/whitedeer', // 分享链接
+        //         imgUrl: 'http://static.arseeds.cn/test/HEmN7mXmNx.png',
+        //         type: '', // 分享类型,music、video或link，不填默认为link
+        //         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        //         success: function (res) {
+        //             // 用户确认分享后执行的回调函数
+        //             // alert('分享成功了诶!内容是：'+_jsonToStr(res));
+        //         },
+        //         cancel: function (res) {
+        //             // 用户取消分享后执行的回调函数
+        //             // alert('取消分享了诶！'+_jsonToStr(res));
+        //         }
+        //     };
+        //     wx.onMenuShareTimeline(share_config);
+        //     console.dir(share_config);
+        // });
+        // wx.error(function(res){
+        //     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+        //     alert(res.errMsg);
+        // });
+    </script>
+</body>
+</html>

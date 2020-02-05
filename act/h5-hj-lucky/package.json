@@ -1,0 +1,17 @@
+{
+  "name": "lucky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "local": "gulp local"
+  },
+  "author": "rexhang",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "browser-sync": "^2.18.8",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.5.1"
+  }
+}

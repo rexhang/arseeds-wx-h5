@@ -1,0 +1,14 @@
+/*添加媒体查询适配大部分手机浏览器*/
+html,body{min-height: 100% !important;min-width: 100%  !important;}
+
+@media screen and (max-width: 750px) {html{  font-size:54px !important;}.middle{ max-width:750px;}}
+
+@media screen and (max-width: 435px) {html{  font-size:43px !important;}}
+
+@media screen and (max-width: 414px) {html{  font-size:40px !important;}}
+
+@media screen and (max-width: 375px) {html{  font-size:37.5px !important;}}
+
+@media screen and (max-width: 360px) {html{  font-size:36px !important;}}
+
+@media screen and (max-width: 320px) {html{  font-size:32px !important;}}

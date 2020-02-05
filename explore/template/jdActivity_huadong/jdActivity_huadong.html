@@ -1,0 +1,121 @@
+<div class="top">
+    <img src="./img/jdhuadong/banner@2x.png" alt="" width="100%">
+    <div class="have_num">
+        <font>今日获得</font>
+        <span class="icons icon1 {{topArr[0].is_get == 1?'':'dis'}}"></span>
+        <span class="icons icon2 {{topArr[1].is_get == 1?'':'dis'}}"></span>
+        <span class="icons icon3 {{topArr[2].is_get == 1?'':'dis'}}"></span>
+        <span class="icons icon4 {{topArr[3].is_get == 1?'':'dis'}}"></span>
+        <span class="icons icon5 {{topArr[4].is_get == 1?'':'dis'}}"></span>
+    </div>
+    <div class="act_info rex-center" ui-sref="activityInfo_huadong()" ui-sref-opts="{reload: true}">活动详情</div>
+</div>
+
+<div class="content">
+    <div class="task_wrap" ui-sref="mapPunchCard_huadong()" ui-sref-opts="{reload: true}">
+        <p class="doc">京东与你一起，畅玩简单生活节！</p>
+        <div class="icons rex-cf">
+            <i class="icon-map"></i>
+            <span class="doc">地点寻宝 ({{clock}}/{{clock_total}})</span>
+            <div class="clickLucky rex-center">寻 宝</div>
+        </div>
+    </div>
+    <div class="lucky-box rex-cf" ng-show="mystatus.lucky == 1">
+        <p class="doc">每天一次免费抽奖机会等着你！</p>
+        <div class="icons rex-cf">
+            <i class="icon"></i>
+            <span class="luck-name">幸运轮盘</span>
+            <div class="clickLucky rex-center" ui-sref="lucky_huadong()" ui-sref-opts="{reload: true}">抽 奖</div>
+        </div>
+    </div>
+    <div class="lucky-box rex-cf" ng-show="mystatus.lucky == 2">
+        <p class="doc">每天一次免费抽奖机会等着你！</p>
+        <div class="icons rex-cf">
+            <i class="icon"></i>
+            <span class="luck-name">幸运轮盘</span>
+            <div class="clickLucky rex-center" ui-sref="jiangpin_huadong({key: mystatus.key1})" ui-sref-opts="{reload: true}">查看兑换码</div>
+        </div>
+    </div>
+    <div class="lucky-box rex-cf dis" ng-show="mystatus.lucky == 3">
+        <p class="doc">每天一次免费抽奖机会等着你！</p>
+        <div class="icons rex-cf">
+            <i class="icon"></i>
+            <span class="luck-name">幸运轮盘</span>
+            <div class="clickLucky rex-center">
+                未中奖
+            </div>
+        </div>
+    </div>
+
+    <div class="exchange" ng-show="mystatus.exchange == 1">
+        <p class="doc">前往简单生活节各打卡点，收集京东元素图标，集满即可获得京东简单生活节限量礼品一份！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                <font class="font1">打满五个点后可兑换神秘礼品</font>
+                <br>
+                <font class="font2">剩余{{mystatus.lastgoods}}份礼品</font>
+            </div>
+            <div class="clickbtn rex-center" ng-click="exchangeGift()">兑 换</div>
+        </div>
+    </div>
+    <div class="exchange" ng-show="mystatus.exchange == 2">
+        <p class="doc">前往简单生活节各打卡点，收集京东元素图标，集满即可获得京东简单生活节限量礼品一份！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                <font class="font1">打满五个点后可兑换神秘礼品</font>
+                <br>
+                <font class="font2">剩余{{mystatus.lastgoods}}份礼品</font>
+            </div>
+            <div class="clickbtn rex-center" ui-sref="jiangpin_huadong({key: mystatus.key2})" ui-sref-opts="{reload: true}">查看兑换码</div>
+        </div>
+    </div>
+    <div class="exchange" ng-show="mystatus.exchange == 3">
+        <p class="doc">前往简单生活节各打卡点，收集京东元素图标，集满即可获得京东简单生活节限量礼品一份！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                <font class="font1">打满五个点后可兑换神秘礼品</font>
+                <br>
+                <font class="font2">剩余{{mystatus.lastgoods}}份礼品</font>
+            </div>
+            <div class="tips">奖券已发完</div>
+        </div>
+    </div>
+    <div class="exchange" ng-show="mystatus.exchange == 4">
+        <p class="doc">前往简单生活节各打卡点，收集京东元素图标，集满即可获得京东简单生活节限量礼品一份！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                <font class="font1">打满五个点后可兑换神秘礼品</font>
+                <br>
+                <font class="font2">剩余{{mystatus.lastgoods}}份礼品</font>
+            </div>
+            <div class="tips">未打满五个点</div>
+        </div>
+    </div>
+
+
+    <div class="exchange-over" ng-if="isrunning != 'running'">
+        <div class="cen">
+            <img src="./img/jd/happy.png" alt="" width="21" height="21">
+            <span>活动已结束，下次再来参与哦！</span>
+        </div>
+    </div>
+    <div class="live">
+        <p class="doc">活/动/现/场</p>
+        <div id="activitybox">
+            <ul id="jd_live">
+                <li class="rex-cf" ng-repeat="x in active_list" style="display: flex;justify-content: center;align-items: center;">
+                    <img ng-src="{{x.thumb_photo}}" alt="" width="50" height="50" class="rex-fl rex-block rex-radius">
+                    <div class="doc rex-text-overflow" style="border-bottom: 1px solid #ccc;height: 80px;line-height: 80px;margin: 0;">
+                        <p class="rex-text-overflow" style="text-indent: 16px;">{{x.nick_name}} {{x.create_time}} {{x.msg}}</p>
+                        <img ng-src="{{x.icon}}" alt="" width="35" height="35" class="rsd" style="margin-top: 22px;">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cooperation" style="background-color: #fff !important">
+        <p class="doc">合/作/商/家</p>
+        <img src="./img/jd/shangjia@2x.png" alt="" width="100%" class="rex-block">
+    </div>
+
+</div>

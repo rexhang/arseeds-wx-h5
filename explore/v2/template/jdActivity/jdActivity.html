@@ -1,0 +1,101 @@
+<div class="top">
+    <img src="./img/jd/dingtu2@2x2.png" alt="" width="100%">
+    <div class="have_num rex-center">当前拥有Joy：{{count}} 只</div>
+    <p class="share_info rex-center" ui-sref="activityInfo()">分享页面获取更多JOY</p>
+    <div class="act_info rex-center" ui-sref="activityInfo()">活动详情</div>
+</div>
+
+<div class="content">
+    <div class="task_wrap" ui-sref="mapPunchCard()" ui-sref-opts="{reload: true}">
+        <p class="doc">环游曲江池，健康畅饮季</p>
+        <div class="icons rex-cf">
+            <i class="icon-map"></i>
+            <span class="doc">地点寻宝 ({{clock}}/{{clock_total}})</span>
+            <div class="clickLucky rex-center">寻 宝</div>
+        </div>
+    </div>
+    <div class="lucky-box rex-cf">
+        <p class="doc">每天一次免费抽奖机会等着你！</p>
+        <div class="icons rex-cf">
+            <i class="icon"></i>
+            <span class="luck-name">幸运轮盘</span>
+            <div class="clickLucky rex-center" ng-show="status0" ui-sref="lucky()">抽 奖</div>
+            <div class="clickLucky rex-center rex-bg-gray rex-text-color-666" ng-show="status2">未 中 奖</div>
+            <span class="clickLuckyCode" ng-show="status1">已中奖 兑换码 {{status_code}}</span>
+        </div>
+    </div>
+    <div class="timeline rex-cf" ui-sref="timelineMap()">
+        <p class="doc">查看他人的参加活动动态，你也可以参与哦！</p>
+        <div class="icons rex-cf">
+            <i class="icon"></i>
+            <span class="luck-name">时空地图</span>
+            <div class="clickLucky rex-center">查 看</div>
+        </div>
+    </div>
+    <div class="exchange" ng-if="!showCode">
+        <p class="doc">获取兑换码可领取丰厚奖品哦！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                兑换通用券一枚
+                <br>
+                需要20只JOY
+            </div>
+            <div class="clickbtn rex-center" ng-if="!codeId && count >= 20" ng-click="exchangeGift()">兑 换</div>
+            <div class="clickbtn rex-center rex-bg-gray rex-text-color-666" ng-if="!codeId && count < 20">兑 换</div>
+        </div>
+    </div>
+    <div class="exchange2" ng-if="showCode">
+        <p class="doc">获取兑换码可领取丰厚奖品哦！</p>
+        <div class="need_wrap rex-cf">
+            <div class="leftdoc">
+                兑换通用券一枚
+                <br>
+                需要20只JOY
+            </div>
+            <div class="clickbtn rex-center">
+                <p style="text-align: right;">已 兑 换</p>
+                <div style="text-align: right;">{{codeId}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="exchange-over" ng-if="isrunning != 'running'">
+        <div class="cen">
+            <img src="./img/jd/happy.png" alt="" width="21" height="21">
+            <span>活动已结束，下次再来参与哦！</span>
+        </div>
+    </div>
+    <div class="live">
+        <p class="doc">活动现场</p>
+        <div id="activitybox">
+            <ul id="jd_live">
+                <li class="rex-cf" ng-repeat="x in active_list">
+                    <img ng-src="{{x.thumb_photo}}" alt="" width="50" height="50" class="rex-fl rex-block rex-radius">
+                    <div class="doc rex-text-overflow">
+                        {{x.nick_name}} {{x.create_time}} {{x.msg}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cooperation">
+        <p class="doc">合作商家</p>
+        <img src="./img/jd/shangjia@2x.png" alt="" width="100%" class="rex-block">
+    </div>
+
+    <!--实现页面弹窗 -->
+    <div class="popUp" ng-show="showBind">
+        <div class="content rex-cf">
+            <ul class="rex-inlineblock" style="width: 100%">
+                <li>绑定手机即可参与活动</li>
+                <li><span>手机号</span><div><input  type="number" ng-model='phone' placeholder='仅限大陆手机号'></div></li>
+                <li><span>验证码</span><div><input type="text" ng-model="num"><span id="send-code" ng-click="send()">发送</span></div></li>
+                <li class="rex-cf" style="height: auto;">
+                    <p class='hint' style="opacity: 0;">手机号不合规或验证码错误！</p>
+                    <div class="binds" ng-click="binds()">绑定</div>
+                </li>
+            </ul>
+        </div>
+        <!-- <img class='clear' src="./img/jd/clear.png" alt="" width="70" height="70" ng-click="showBind = false"> -->
+    </div>
+
+</div>

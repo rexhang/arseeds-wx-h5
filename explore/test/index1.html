@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function insd(){
+            var LAT = null; // 经度 小
+            var LNG = null; // 纬度 大
+            var positionArr = null;
+            var positionConfig = {
+                /*指示浏览器获取高精度的位置，默认为false*/
+                enableHighAccuracy: true,
+                /*指定获取地理位置的超时时间，默认不限时，单位为毫秒*/
+                timeout: 5000,
+                /*最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。*/
+                maximumAge: 0
+            }
+            if( navigator.geolocation ){
+                navigator.geolocation.getCurrentPosition(onComplete, onError, positionConfig);
+            } else{
+                alert('sorry 您的手机不支持GPS定位，请更换手机参与活动');
+            }
+            function onComplete(data){
+                LAT = data.coords.latitude; // 纬度 小
+                LNG = data.coords.longitude; // 经度 大
+                alert(LAT);
+                alert(LNG);
+            }
+            //解析定位错误信息
+            function onError(err) {
+                switch(err.code) {
+                    case err.TIMEOUT:
+                        alert('发生超时！ 请再试一次！')
+                        break;
+                    case err.POSITION_UNAVAILABLE:
+                        alert('我们无法检测您的位置。 抱歉!')
+                        break;
+                    case err.PERMISSION_DENIED:
+                        alert('抱歉！请允许您的设备GPS是打开的，这样才能访问此功能。')
+                        break;
+                    case err.UNKNOWN_ERROR:
+                        alert('未知错误！请及时上报')
+                        break;
+                }
+            }
+        }
+        insd();
+    </script>
+</body>
+</html>

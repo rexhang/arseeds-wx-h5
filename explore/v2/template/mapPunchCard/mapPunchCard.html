@@ -1,0 +1,21 @@
+<div class="map-bg"></div>
+<div class="do">
+    <ul class="rex-cf">
+        <li ng-repeat="x in list" ng-click="getLocations(x.location.lng, x.location.lat, x.node_id, x.point, x.location.radius, x.is_sign, x.coupon_href)">
+            <img ng-src="{{x.icon}}" alt="" width="50" height="50">
+            <p>{{x.node_name}}</p>
+        </li>
+    </ul>
+</div>
+
+<div id="dakashibai" ng-show="dakashibai" ng-click="dakashibai = !dakashibai"></div>
+
+<div id="dakachenggong" ng-show="dakachenggong">
+    <a class="link" ng-href="{{cardId}}"></a>
+    <div class="sure" ng-click="dakachenggongFunction()"></div>
+</div>
+
+<div id="zaicidaka" ng-show="zaicidaka">
+    <a class="link" ng-href="{{cardIds}}"></a>
+    <div class="sure" ng-click="zaicidaka = !zaicidaka"></div>
+</div>

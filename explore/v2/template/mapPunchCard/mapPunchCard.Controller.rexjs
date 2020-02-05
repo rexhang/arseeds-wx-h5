@@ -1,0 +1,19 @@
+angular.module('exploreApp')
+.controller('mapPunchCardController', ['$rootScope', '$scope', 'URL', 'serverConnect', '$interval', '$state', function($rootScope, $scope, URL, serverConnect, $interval, $state){
+    return mapPunchCardController($rootScope, $scope, URL, serverConnect, $interval, $state);
+}]);
+
+function mapPunchCardController($rootScope, $scope, URL, serverConnect, $interval, $state){
+    $rootScope.appLog('mapPunchCardController init');
+    $rootScope.bodyclass = 'mapPunchCard';
+    // layer.load(1, {
+    //   shade: [0.5,'#000'] //0.1透明度的白色背景
+    // });
+    $interval.cancel($rootScope.setIntervalForJdLive); // 取消绑定的定时器
+
+    $scope.$on('$viewContentLoaded', () => {
+        let baseURL = URL.apiUrl().online_exchange;
+        console.log('rexjs');
+
+    })
+}

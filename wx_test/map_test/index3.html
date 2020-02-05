@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta author="rexhang">
+    <title>template</title>
+    <!-- page：rexhang | blog：http://rexhang.com/blog (admin@rexhang.com) | date：2017-04-20 15:55:13 -->
+    <style type="text/css">
+        *{
+            margin: 0;padding: 0;
+        }
+        html, body{
+           width: 100%;height: 100%;
+        }
+        #map-wrap{
+            width: 100%;height: 100%;
+            border: 4px solid #ff7300;
+            box-sizing: border-box;
+            position: relative;
+        }
+        #pic{
+            width: 160px;height: 160px;
+            position: absolute;
+            left: calc(50% - 80px);
+            top: calc(50% - 80px);
+            z-index: 9999;
+            display: none;
+        }
+        #container{
+            width: 100%;height: 100%;
+        }
+        #tip{
+            position: fixed;right: 14px;bottom: 20px;z-index: 999;
+        }
+        #getLocation{
+            position: fixed;left: 14px;bottom: 20px;z-index: 999;
+        }
+        #mapinfo{
+            position: fixed;left: 14px;top: 20px;z-index: 999;opacity: 0.5;
+            width: 100%;resize: vertical;min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="map-wrap">
+        <div id="container" tabindex="0"></div>
+        <img src="btn1.gif" id="pic">
+        <pre name="mapinfo" id="mapinfo"></pre>
+    </div>
+
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=1e84f66a8d14e1f90c1b518665ff0b82"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript">
+        //var map, map2, marker, marker2, geolocation;
+        // 创建地图
+        // AMap.Bounds()参数分别代表地物对象西南角经纬度和东北角经纬度值 | api: http://lbs.amap.com/api/javascript-api/reference/core/#Bounds
+        var map = new AMap.Map('container', {
+                resizeEnable: true,
+                zoom: 14
+         });
+
+        // 创建3D图层
+        if (document.createElement('canvas') && document.createElement('canvas').getContext && document.createElement('canvas').getContext('2d')) {
+            // 实例化3D楼块图层
+            var buildings = new AMap.Buildings();
+            // 在map中添加3D楼块图层
+            buildings.setMap(map);
+        } else {
+            document.getElementById('tip').innerHTML = "对不起，需要浏览器支持HTML5！";
+        }
+
+        var markers = []; // markers对象集合
+        var provinces = [
+            {
+                "name": "点1",
+                "center": "108.875183, 34.230009",
+                "type": 0,
+                "subDistricts": []
+            }, {
+                "name": "点2",
+                "center": "108.875736,34.230306",
+                "type": 0,
+                "subDistricts": []
+            }, {
+                "name": "点3",
+                "center": "108.875924,34.229517",
+                "type": 0,
+                "subDistricts": []
+            }
+        ];
+        for (var i = 0; i < provinces.length; i ++) {
+            var marker;
+            if (provinces[i].type === 0) {
+                marker = new AMap.Marker({
+                    position: provinces[i].center.split(','),
+                    icon : new AMap.Icon({            
+                                image: "https://interface.arseeds.com/wx_h5/img/whitedeer/clickDog.png",
+                                size: new AMap.Size(36, 36),
+                                imageSize: new AMap.Size(36, 36)
+                            }), 
+                    map: map,
+                    title: provinces[i].name,
+                    clickable : true,
+                    animation: 'AMAP_ANIMATION_DROP',
+                    autoRotation: true,
+                    draggable: true,
+                    raiseOnDrag: true
+                });
+            }
+            markers.push(marker);
+        }
+        map.setFitView(); // 调整合适缩放
+        console.dir(markers);
+
+        // 为marker添加点击事件
+        AMap.event.addListener(markers[0],'touchend', function (){
+            //getLocation();// 获取用户当前位置信息
+            alert('点击后弹出的是当前坐标信息，并显示在左上角')
+            var res = markers[0].getPosition();
+            document.getElementById('mapinfo').innerHTML = res
+            getLocation();
+        });
+
+        AMap.event.addListener(markers[1],'touchend', function (){
+            //getLocation(); 
+            alert('点击后弹出的是当前坐标信息，并显示在左上角')
+            var res = markers[1].getPosition();
+            document.getElementById('mapinfo').innerHTML = res;
+            getLocation();
+        });
+
+        AMap.event.addListener(markers[2],'touchend', function (){
+            alert('点击后弹出的是当前坐标信息，并显示在左上角，并且跳转到我当前位置去')
+            var res = markers[1].getPosition();
+            document.getElementById('mapinfo').innerHTML = res;
+            getLocation();
+        });
+
+        // 获取当前位置的经纬度
+        function getLocation(){
+            //alert(0);
+            map.plugin('AMap.Geolocation', function() {
+                geolocation = new AMap.Geolocation({
+                    enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                    timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                    maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+                    convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                    showButton: true,        //显示定位按钮，默认：true
+                    buttonPosition: 'RT',    //定位按钮停靠位置，默认：'LB'，左下角
+                    buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                    showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                    showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                    panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                    zoomToAccuracy: true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+                });
+                map.addControl(geolocation);
+                geolocation.getCurrentPosition();
+                AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+                AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+            });
+            //解析定位结果
+            function onComplete(data) {
+                alert('定位成功')
+                var str=['定位成功'];
+                str.push('经度：' + data.position.getLng());
+                str.push('纬度：' + data.position.getLat());
+                
+                alert('经度：' + data.position.getLng() + '纬度：'+data.position.getLat() + '精度：'+data.accuracy+'M');
+                //alert('纬度：' + data.position.getLat());
+
+                var jd = data.position.getLng();
+                var wd = data.position.getLat();
+                if(data.accuracy){
+                     str.push('精度：' + data.accuracy + ' 米');
+                }//如为IP精确定位结果则没有精度信息
+                str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+                document.getElementById('mapinfo').innerHTML = jd + '--' + wd;
+            }
+            //解析定位错误信息
+            function onError(data) {
+                alert('定位失败');
+            }
+        }
+        
+          
+    </script>
+        
+</body>
+</html>

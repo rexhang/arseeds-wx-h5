@@ -1,0 +1,102 @@
+<style type="text/css" media="screen">
+    body{
+        text-align: center;
+    }
+    #header{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #header img{
+        width: 100%;
+        height: 8rem;
+    }
+    #header>span{
+        background: rgba(0,0,0,0.6);
+        color: white;
+        padding: 0.1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+    }
+    button{
+        width: 75%;
+        border-radius: 0.5rem;
+        height: 1rem;
+        background: #ec0014;
+        color: white;
+        font-size: 0.4rem;
+        margin: 0 auto
+    }
+    #footer{
+        text-align: left;
+        padding: 0.53rem 0.66rem;
+    }
+    #footer .title{
+        font-size: 0.53rem;
+        width: 80%;
+        margin-bottom: 0.5rem;
+        display:-webkit-box;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        word-break:break-all;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+    }
+    #footer .count span{
+        color: #ec0014;
+        font-size:0.42rem;
+    }
+    #footer #Bottom{
+        margin-top: 0.8rem;
+        text-align: center;
+    }
+    .swiper-pagination span{
+        background: red;
+    }
+    #footer #Top{
+        position: relative;
+    }
+    #footer #Top a{
+        font-size:0.6rem;
+        position:absolute;
+        top:0;
+        right: 0;
+    }
+    .right-icons{
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        background: url('../../img/jd/right-icons.png') no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+        margin-top: 3px;
+    }
+    .disa{
+        background: #d5d5d5;
+    }
+</style>
+<section>
+    <div class="swiper-container" id="header">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="item in list.coupon_img_path">
+                    <img ng-src="{{item}}" alt="">
+                </div>
+             </div>
+             <div class="swiper-pagination"></div>
+             <span ng-if="list.coupon_type == 1">{{list.coupon_count}}剩余</span>
+    </div>
+    <div id="footer">
+        <div id="Top">
+            <p class="title">{{list.coupon_title}}</p>
+            <a href="{{list.coupon_href}}" class="right-icons" ng-if="list.coupon_type==1 && list.coupon_href != ''"></a>
+        </div>
+        <p class='count' ng-if="list.coupon_type==1"><span>{{list.coupon_need_score}}</span> 积分</p>
+        <p class='count' ng-if="list.coupon_type==2"><span>{{list.coupon_need_score}}</span> 积分</p>
+        <div id="Bottom">
+            <button ng-if="list.coupon_type==1" class="{{disa}}" ng-disabled="isDis" ng-click="click()">兑换</button>
+            <button ng-if="list.coupon_type==2" class="{{disa}}" ng-disabled="isDis" ng-click="expression(list.coupon_href)">领取</button>
+        </div>
+    </div>
+</section>

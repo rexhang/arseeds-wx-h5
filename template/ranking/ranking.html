@@ -1,0 +1,82 @@
+<style>
+
+header{
+	font-size: 0;
+	position: relative;
+}
+header img{
+	width: 100%;
+}
+header div{
+	width: 65%;
+	height: 1rem;
+	margin: auto;
+	background: url('./img/schoolActivity/joyBackground.png') center center no-repeat;
+	background-size: 100% 100%;
+	line-height: 1rem;
+	color: white;
+	position: absolute;
+	bottom: 0.5rem;
+	left: 0;
+	right: 0;
+	font-size: 0.4rem;
+	text-align: center;
+}
+/*排行榜内容样式添加*/
+.content{
+	box-sizing: border-box;
+	padding-left:0.5rem;
+	font-size: 0.4rem;
+}
+.content li{
+	border-bottom:1px solid #999;
+	padding: 0.3rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.rank{
+	width: 0.65rem;
+	display: inline-block;
+	text-align: center;
+	vertical-align:middle
+}
+.userImg{
+	width: 1.3rem;
+	height: 1.3rem;
+	border-radius: 50%;
+	margin:0 0.2rem;
+	vertical-align:middle
+}
+.left span{
+	vertical-align: middle;
+}
+.right{
+	margin-right: 0.6rem;
+}
+.right span{
+	color: #0e80e8;
+}
+</style>
+<div class="wrap">
+	<header>
+		<img src="./img/schoolActivity/update.png" alt="">
+		<div>已获得 {{+myself.count}} 只JOY，排名 {{+myself.rank}} </div>
+	</header>
+	<div class="content">
+		<ul>
+			<li ng-repeat='item in result'>
+			<div class="left">
+				<img class='rank' ng-if='$index == 0' src="./img/schoolActivity/num1.png" alt="">
+				<img class='rank' ng-if='$index == 1' src="./img/schoolActivity/num2.png" alt="">
+				<img class='rank' ng-if='$index == 2' src="./img/schoolActivity/num3.png" alt="">
+				<span class='rank' ng-if='$index >2'>{{$index+1}}</span>
+				<img class='userImg' ng-src="{{item.thumb_photo}}" alt="">
+				<span>{{item.nick_name}}</span>
+			</div>
+			<div class="right">JOY:<span>{{item.count}}</span>只</div></li>
+		</ul>
+	</div>
+
+</div>

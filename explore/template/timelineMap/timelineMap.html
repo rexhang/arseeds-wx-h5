@@ -1,0 +1,20 @@
+<div id="containerTimeline" style="width: 100%;"></div>
+
+<div class="pos-create" ui-sref="createTimeLine()" ui-sref-opts="{reload: true}"></div>
+
+<div class="timelineModal" id="timelineModal">
+    <div class="card rex-fl">
+        <div class="top rex-cf">
+            <img ng-src="{{user.thumb_photo}}" alt="" width="50" height="50" class="rex-fl rex-block rex-radius">
+            <div class="text-box rex-fl">
+                <div class="nickName">{{user.nick_name}}</div>
+                <div class="createTime" ng-bind="user.create_time * 1000 | date:'yyyy-MM-dd h:mm a'"></div>
+            </div>
+        </div>
+        <div class="center-content">
+            <p>{{user.content}}</p>
+            <img alt="" id="userUploadImg" class="rex-block" style="width: 100%;">
+        </div>
+    </div>
+    <img src="./img/jd/guanbi@2x.png" alt="" width="25" height="25" id="close" ng-click="close()" class="rex-fl">
+</div>

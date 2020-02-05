@@ -1,0 +1,150 @@
+<style media="screen">
+  /*.rightCon{
+  border-left: 1px solid #708090;
+  }*/
+  input{
+    height: 42px;
+  }
+  .rightCon h1{
+  margin: 50px 50px 0;
+  padding-bottom: 40px;
+  }
+  .rightCon ul{
+  margin-left: 50px;
+  }
+  .rightCon ul li{
+  margin-bottom: 20px;
+  }
+  label{
+  font-weight: 100;
+  margin-right: 20px;
+  }
+  label span{
+  margin-left: 10px;
+  }
+  .rightCon ul li:nth-of-type(2):after{
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  }
+  .rightCon ul li:nth-of-type(2) div div{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border: 1px solid lightgray;
+  text-align: center;
+  margin-right: 20px;
+  }
+  .rightCon ul li:nth-of-type(2) div div img{
+  width: 40px;
+  }
+  .rightCon ul li:nth-of-type(2) div,.rightCon ul li:nth-of-type(2) div p{
+  float: left;
+  }
+  input{
+  outline: none;
+  border: none;
+  border: 1px solid lightgray;
+  line-height: 40px;
+  padding-left: 15px;
+  }
+  .rightCon ul li:nth-of-type(3) input,.rightCon ul li:nth-of-type(4) input{
+  width: 500px;
+  }
+  .rightCon ul li:nth-last-child(1) button{
+  width: 100px;
+  line-height: 40px;
+  }
+  #Image #img{
+    width: 80px;
+    height: 80px;
+  }
+  .UPimage{
+    display: inline-block;
+      width: 150px;
+      height: 150px;
+      text-align: center
+  }
+  .UPimage img{
+    height: 130px
+  }
+  #radio1{
+    width: 200px;
+    float: left;
+    margin: 0;
+  }
+  #radio2{
+    width: 200px;
+    float: left;
+    margin: 0;
+  }
+</style>
+<section>
+  <!-- 右边内容 -->
+  <!-- <div class="rightCon col-md-10 col-sm-10"> -->
+    <h1>{{title}}</h1>
+    <ul class="">
+      <li>
+        <p>类型</p>
+        <div class="am-cf">
+          <label id="radio1" class="am-radio"><input type="radio" name="radio"  value=""  id="radioOne" ng-click="clickOne()" data-am-ucheck><span>实物礼品</span></label>
+          <label id="radio2" class="am-radio"><input type="radio" name="radio"  value="" id="radioTwo" ng-click="clickTwo()" data-am-ucheck><span>优惠券</span></label>
+
+
+
+        </div>
+      </li>
+      <li id="uploadImage">
+        <p>图片</p>
+        <div class="" style="display: block;width: 100%;margin-bottom: 10px;" id="IMage">
+          <div class="" style='position:relative;'>
+            <img src="./img/u115.png" id="titleImage" alt="">
+            <input type="file" id="choice" title="请选择礼品图片" style="position: absolute;top:0;left:0;width: 150px;height: 150px ;opacity: 0" ng-upload="insdsd($value)"></input>
+          </div>
+        <p>建议图片尺寸为640px X 640px</br>仅限JPG/PNG/BMP格式，大小不超过2M</p>
+        </div>
+      <!-- 更改渲染 -->
+      <div ng-repeat="item in list.coupon_img_path" style="width: 150px;border: none;margin-right: 6px;">
+        <div class=""  style="font-size: 0;border: none">
+          <div class="" style='position:relative;border: none'>
+            <img ng-src="{{item}}" class="titleImage" style="width: 150px;height:100%;border: none;" alt="">
+            <input type="file" id="choice" title="请选择礼品图片" style="position: absolute;top:0;left:0;width: 150px;height: 150px ;opacity: 0" ng-upload="insdsd($value,$index)"></input>
+          </div>
+        </div>
+        <p style="text-align: center;width: 100%;margin:0;margin-top: 6px;cursor: pointer;" ng-click="removeImage($index)" ng-if="list.coupon_type == 1">删除</p>
+        </div>
+      </li>
+      <li id="Image">
+          <div  ng-repeat="item in count" class="UPimage">
+            <img ng-src="{{item}}" alt="">
+            <p ng-click='remove($index)' style="text-align: center">删除</p>
+          </div>
+      </li>
+      <li>
+        <p style="margin-bottom:0">名称</p>
+        <input type="text" name="" ng-model="PrizeName" maxlength="32" placeholder="请输入礼品名称"  id='valOne'>
+      </li>
+      <li>
+        <p style="margin-bottom:0">详细介绍（将跳转至该网址）</p>
+        <input type="text" name="" style="width: 500px" ng-model="PrizeHref" placeholder="http://" id="valTwo">
+      </li>
+      <li id="count">
+        <p style="margin-bottom:0">兑换该礼品所需的积分</p>
+        <input type="number" name="" ng-model="PrizeCount" placeholder="请输入积分" id="valThree">
+      </li>
+      <li id="need" style="display: none;">
+        <p style="margin-bottom:0">兑换该优惠券所需的积分</p>
+        <input type="number" name="" value="0" placeholder="请输入积分" id="valOld">
+      </li>
+      <li  id="num">
+        <p style="margin-bottom:0">库存</p>
+        <input type="text" name="" ng-model="PrizeNum" placeholder="请输入礼品库存数量" id="valFour">
+      </li>
+      <li>
+        <button type="button" name="button" ng-click="submit()">确定</button>
+        <button type="button" name="button" ui-sref="index.gift">取消</button>
+      </li>
+    </ul>
+</section>

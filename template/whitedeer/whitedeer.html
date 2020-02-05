@@ -1,0 +1,79 @@
+<style scoped>
+.popUp{
+   display: none;
+}
+.btn1{
+    float: right;
+    font-size:0.45rem;
+    line-height: 0.55rem;
+    text-align: right;
+    color: #027afc;
+}
+</style>
+<!-- 白鹿原首页模板 -->
+<div class="top">
+    <img src="./img/whitedeer/dingtu@2x.png" alt="" width="100%" class="bg">
+    <div class="tip">已获得{{my.count}}只JOY，排名{{my.rank}}</div>
+    <a href="javascript:;" ui-sref='share' class="share">分享页面获取更多JOY</a>
+    <div class="btn" ui-sref='share'>活动详情</div>
+</div>
+
+<div class="module">
+    <div class="container-inner">
+        <p class="task-doc">今日任务 <span class="task-time">每日00: 00刷新数据</span></p>
+        <div class="map rex-cf " ng-click='play_card($event)'>
+            <img src="./img/whitedeer/didianxunbaoicon@2x.png" alt="" class="map0">
+            <span class="map-doc">地点寻宝（{{index}}/{{length}}）</span>
+        </div>
+    </div>
+</div>
+<div class="module module2">
+    <div class="container-inner">
+        <p class="task-doc" ui-sref="prize">礼券兑换 <span class="task-time">今日剩余: {{award_remaining}}</span></p>
+        <div class="map rex-cf" >
+            <div class="left-doc">
+                <p class="map-doc">兑换通用券一枚</p>
+                <p class="map-doc">需要20只JOY</p>
+            </div>
+            <div class="btn1" ng-if ='prize[0].coupons_id'>已兑换<br>{{prize[0].coupons_id}}</div>
+            <div class="btn" ng-click='exchange()' ng-if="count >= 20 && !prize[0].coupons_id">兑换</div>
+            <div class='btn1' ng-if='count < 20 && !prize[0].coupons_id'>JOY不足<br>获取一些后再回来</div>
+        </div>
+    </div>
+</div>
+<div class="live">
+    <div class="container-inner">
+        <p class="live-tit">活动现场</p>
+        <div class="Go" style='overflow: hidden;'>
+        <ul class="ul-live" >
+            <li data-ng-repeat="x in lists">
+                <img ng-src="{{x.thumb_photo}}" style='border-radius:50%;widht:1rem;' >
+                <span>{{x.nick_name}} {{x.create_time}} {{x.msg}}</span>
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+<div class="cooperation">
+    <div class="container-inner">
+        <p class="cooperation-tit">合作商家</p>
+        <div class="show">
+            <img src="./img/whitedeer/hezuopinpai@3x.png" width="100%">
+        </div>
+    </div>
+</div>
+<!-- 添加输入手机弹窗 -->
+<div class="popUp">
+<div class="content">
+    <ul id="modal">
+    <li>绑定手机即可参与活动</li>
+    <li><span>手机号</span><div><input  type="number"  ng-model='phone' placeholder='仅限大陆手机号'></div></li>
+    <li><span>验证码</span><div><input type="text" ng-model='num'><span ng-click='send()'>发送</span></div></li>
+    <li>
+    <p class='hint'>手机号不合规或验证码错误！</p>
+    <button ng-click='ligate()'>绑&nbsp&nbsp&nbsp&nbsp定</button>
+    </li>
+    </ul>
+    <img  ng-click='show()' class='clear' src="./img/whitedeer/clear.png" alt="">
+</div>
+</div>

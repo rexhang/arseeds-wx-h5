@@ -1,0 +1,211 @@
+<style media="screen">
+  .rightCon h1{
+  margin: 50px 50px 0;
+  padding-bottom: 40px;
+  }
+  .rightCon ul{
+  margin-left: 45px;
+  border-bottom: 1px solid lightgray;
+  padding: 20px 0;
+  }
+  .rightCon ul:nth-of-type(1){
+  border-top: 1px solid lightgray;
+  }
+  .setBlock li{
+  width: 540px;
+  height: 330px;
+  border: 1px solid lightgray;
+  margin:auto;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 15;
+  }
+  .rightCon ul:nth-last-child(1){
+  border-bottom: none;
+  }
+  .setBlock li div:nth-of-type(1){
+  height: auto;
+  box-sizing: border-box;
+  text-align: center;
+  }
+  .setBlock li div:nth-of-type(1) p{
+  padding-top: 100px;
+  margin-bottom: 20px;
+  }
+  .setBlock li div:nth-of-type(1) input{
+  width: auto;
+  line-height: 40px;
+  padding-left: 15px;
+  }
+  .setBlock li div:nth-of-type(2){
+  text-align: center;
+  }
+  .setBlock li div:nth-of-type(2) button{
+  margin-top: 18px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  margin-right: 15px;
+  }
+  .setBlock li div:nth-of-type(2) button:hover{
+  background-color: lightgray;
+  }
+  .setBlock li div:nth-of-type(1) select{
+  width: 100px;
+  height: 40px;
+  }
+  input{
+    outline: none;
+  }
+  #mod{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    z-index: 11;
+    display: none;
+  }
+  #tabs tr td {
+    width: 50%;
+    padding: 10px 0;
+  }
+  #tabs tr{
+
+  }
+</style>
+<section>
+  <h1>设置</h1>
+  <ul class="am-g">
+    <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">邀请好友成功后，可获取积分</li>
+    <li class="am-u-sm-7 am-u-md-7 am-u-lg-7"><span id="invitedOne">{{list.invitation_score}}</span>分</li>
+    <li class="am-u-sm-1 am-u-md-1 am-u-lg-1" style="color:lightblue;cursor: pointer;" id="amendOne" ng-click="amend(1)">修改</li>
+  </ul>
+  <ul class="am-g">
+    <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">每天可获得好友赠送的积分上限</li>
+    <li class="am-u-sm-7 am-u-md-7 am-u-lg-7"><span id="invitedTwo">{{list.donate_score}}</span>分</li>
+    <li class="am-u-sm-1 am-u-md-1 am-u-lg-1" style="color:lightblue;cursor: pointer;" id="amendTwo" ng-click="amend(2)">修改</li>
+  </ul>
+  <ul class="am-g">
+    <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">积分清零的时间</li>
+    <li class="am-u-sm-7 am-u-md-7 am-u-lg-7" ><span id="invitedThree">{{list.remove_score_date}}</span></li>
+    <li class="am-u-sm-1 am-u-md-1 am-u-lg-1" style="color:lightblue;cursor: pointer;" id="amendThree" ng-click="amend(3)">修改</li>
+  </ul>
+  <ul class="am-g">
+    <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">设置连续打卡所获得积分</li>
+    <li class="am-u-sm-7 am-u-md-7 am-u-lg-7" ><span id="invitedThree">已设置</span></li>
+    <li class="am-u-sm-1 am-u-md-1 am-u-lg-1" style="color:lightblue;cursor: pointer;" id="amendThree" ng-click="amend(4)">修改</li>
+  </ul>
+
+  <!-- <ul class="row">
+    <li class="col-md-4 col-sm-4">  第一天打卡所得积分</li>
+    <li class="col-md-7 col-sm-7"  id="first_day">{{list.first_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(1)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4">第二天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7"  id="second_day">{{list.second_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(2)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4" >第三天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7" id="third_day">{{list.third_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(3)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4">第四天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7"  id="fourth_day">{{list.fourth_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(4)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4">第五天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7" id="fifth_day">{{list.fifth_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(5)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4">第六天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7" id="sixth_day">{{list.sixth_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(6)">修改</li>
+  </ul>
+  <ul class="row">
+    <li class="col-md-4 col-sm-4">第七天打卡所得积分
+</li>
+    <li class="col-md-7 col-sm-7" id="seventh_day">{{list.seventh_day}}</li>
+    <li class="col-md-1 col-sm-1" style="color:lightblue" id="amendThree" ng-click="week(7)">修改</li>
+  </ul> -->
+  <ul class="setBlock">
+    <li id="listOne">
+      <div class="">
+        <p>邀请好友成功后，可获取积分</p>
+        <input type="number" name="" placeholder="请输入分值" id="friendOne" style="width: 280px;">
+      </div>
+      <div class="">
+        <button type="button" name="button" ng-click="abolish(1)">取消</button>
+        <button type="button" name="button" ng-click="ensure(1)" style="margin-right: 0">确定</button>
+      </div>
+    </li>
+
+    <li id="listTwo">
+      <div class="">
+        <p>每天可获得好友赠送的积分上限</p>
+        <input type="number" name="" placeholder="请输入分值" id="friendTwo" style="width: 280px;">
+      </div>
+      <div class="">
+        <button type="button" name="button" ng-click="abolish(2)">取消</button>
+        <button type="button" name="button" ng-click="ensure(2)" style="margin-right: 0">确定</button>
+      </div>
+    </li>
+    <li id="listThree">
+      <div class="">
+        <p>选择积分清零的周期</p>
+          <form action="" class="am-form am-form-inline" style="display:inline-block;vertical-align:top;">
+            <div class="am-form-group am-form-icon" style="border-bottom:none">
+              <input type="text" class="am-form-field" style="height:40px;width: 280px;" id="friendThree" placeholder="请选择日期" data-am-datepicker="{theme: 'success'}" readonly/>
+            </div>
+          </form>
+      </div>
+      <div class="" style="position: relative;">
+        <button type="button" name="button" ng-click="abolish(3)">取消</button>
+        <button type="button" name="button" ng-click="ensure(3)" style="margin-right: 0">确定</button>
+      </div>
+    </li>
+    <li id="listFour" style="height: 570px;">
+    <div >
+      <table style="width: 100%;text-align: center" id="tabs">
+        <caption style="text-align: center;padding: 20px 0">连续打卡分值设置</caption>
+          <tr>
+            <td style="width: 50%"><span >连续打卡天数</span></td>
+            <td style="width: 50%"><span style="">当日可获积分</span></td>
+          </tr>
+          <tr><td style=""><span style="">第1天</span></td> <td style=""><input id="day1" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第2天</span></td> <td style=""><input id="day2" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第3天</span></td> <td style=""><input id="day3" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第4天</span></td> <td style=""><input id="day4" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第5天</span></td> <td style=""><input id="day5" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第6天</span></td> <td style=""><input id="day6" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+          <tr><td style=""><span style="">第7天及以后</span></td> <td style=""><input id="day7" type="number" style="height: 30px;width: 70px;text-align: center;margin-right: 5px"></input>分</td></tr>
+      </table>
+    </div>
+      <div class="" style="position: relative;margin-top: 10px;">
+        <button type="button" name="button" ng-click="abolish(4)">取消</button>
+        <button type="button" name="button" ng-click="ensure(4)" style="margin-right: 0">确定</button>
+      </div>
+    </li>
+  </ul>
+</section>
+<div id="mod"></div>

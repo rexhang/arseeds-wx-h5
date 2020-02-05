@@ -1,0 +1,35 @@
+<div class="head">
+    <div class="center">
+        <div class="left">
+            <a ng-href="#list">
+                <img src="./img/login/logo.png" alt="logo" width="50" height="50"><span>探索</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bg"></div>
+<div class="login-box rex-cf">
+    <div class="left-box">
+        <p class="title">扫描二维码下载“探索”</p>
+        <div class="qr-box">
+            <img src="./img/login/qrcode.png" alt="" width="160" height="160">
+        </div>
+    </div>
+    <div class="right-box">
+        <div class="innerbox">
+            <p class="title">欢迎回来，请登录！</p>
+            <div class="login">
+                <p id="prompt-info">密码或账号不正确，请重新输入。</p>
+                <div class="user">
+                    <span></span>
+                    <input type="text" id="useremail" ng-model="email" name="email" autofocus="true" value="" placeholder="邮箱">
+                </div>
+                <div class="password">
+                    <span></span>
+                    <input type="password" ng-model="password" ng-keyup="send($event)" name="password" value="" placeholder="密码">
+                </div>
+            </div>
+            <div class="loginin" ng-click="loginin()">登 录</div>
+        </div>
+    </div>
+</div>

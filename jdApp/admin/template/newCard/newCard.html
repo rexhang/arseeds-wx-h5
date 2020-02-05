@@ -1,0 +1,78 @@
+<style type="text/css" media="screen">
+    #cardTitle{
+        display: block;
+        width: 100%;
+        padding:0;
+        text-align: left!important;
+        font-size: 14px;
+        color: #ccc;
+        margin-bottom: 12px;
+    }
+    #cardCenter{
+        padding:0;
+        display: block;
+        float: left;
+    }
+    #cardCenter input{
+        width: 200px;
+        height: 40px;
+    }
+    #choice{
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 100;
+        position: absolute;
+        cursor: pointer;
+    }
+    #title{
+        text-align: center;
+        width:100px;
+        height: 100px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #title span{
+        width: 500px;
+        position: absolute;left: 12px;top: 0;
+        font-size: 14px;
+        color: #555;
+    }
+    #title img{
+        width: 100%;
+        height: 100%;
+    }
+.button{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    border:1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+}
+</style>
+<section style="padding: 30px">
+<h1 style="font-weight: normal;">{{title}}</h1>
+<div id="title">
+    <input type='file' id="choice" value="" ng-upload="insdsd($value)" title="请选择打卡图片"></input>
+    <img src="./img/add.png" id="titleImage" alt="">
+    <span>仅限JPG/PNG/BMP格式，大小不超过2MB</span>
+</div>
+
+<div class="am-g" style="margin-top: 50px;margin-bottom: 90px">
+     <div class="am-u-sm-4 am-u-md-2 am-text-right" id="cardTitle">
+            选择该卡片对应的打卡日期：（用户在该日期打卡，则向用户展示卡片）
+      </div>
+    <div class="am-u-sm-8 am-u-md-10" id="cardCenter">
+        <input type="text" class="am-form-field" id="day" placeholder="请选择日期" data-am-datepicker="{theme: 'success'}" readonly/>
+    </div>
+</div>
+<div>
+    <span class="button" ng-click="click()">确定</span>
+    <span class="button" ng-click='cancel()'>取消</span>
+</div>
+</section>

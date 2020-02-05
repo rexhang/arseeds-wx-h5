@@ -1,0 +1,271 @@
+<style>
+header img{
+	width: 100%;
+}
+
+.content{
+	box-sizing: border-box;
+	padding: 0.3rem 0.8rem;
+	text-align: center;
+}
+.content h2{
+	font-size: 0.45rem;
+	margin-bottom: 0.2rem;
+
+}
+.hint{
+	font-size: 0.35rem;
+}
+.playCard{
+	background:url('./img/schoolActivity/playCard.png') center center no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	width: 80%;
+	height: 1rem;
+	margin:  0.5rem	 auto;
+	color: white;
+	font-size: 0.4rem;
+	line-height: 0.8rem;
+}
+.dog{
+	width: 90%;
+}
+.myInfo{
+	text-align: left;
+	font-size: 0.45rem;
+	margin-top: 0.3rem;
+}
+.myInfo p{
+	display: inline-block;
+	text-align: center;
+	line-height: 1rem;
+	width: 3.5rem;
+	height: 1rem;
+	border-radius: 1rem;
+	color:white;
+	background:#28a2ef;
+	margin: 0.2rem 0;
+}
+.rule{
+	font-size: 0.35rem;
+	margin-top: .3rem;
+}
+.our{
+	display: flex;
+	justify-content: space-around;
+	margin: 0.5rem;
+	display: none;
+}
+/*等待配对*/
+.myContent,.youContent{
+	display: inline-block;
+}
+.myContent i{
+	display: inline-block;
+	background:url('./img/schoolActivity/run.png') center center no-repeat;
+	background-size: 100% 100%;
+	width: 4rem;
+	height: 4rem;
+	position: relative;
+}
+.youContent i{
+	display: inline-block;
+	width: 4rem;
+	height: 4rem;
+	background:url('./img/schoolActivity/run.png') center center no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+i img{
+	width: 2.7rem;
+	height: 2.7rem;
+	border:2px solid #973aff;
+	border-radius: 50%;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.everyname {
+	font-size: 0.4rem;
+
+}
+
+
+/*弹窗*/
+.popUp{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	background:rgba(0,0,0,0.5);
+	z-index: 100;
+	display: none;
+}
+.popUp ul{
+	width: 8rem;
+	height: 9.1rem;
+	background:white;
+	margin:auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom:0;
+	text-align: center;
+	font-size: 0.47rem;
+	border-radius: 0.3rem;
+}
+.popUp ul li:nth-of-type(1){
+	font-size: 0.55rem;
+	margin-top: .6rem;
+}
+.popUp ul li:nth-of-type(2) img{
+	width: 50%;
+	margin: 0.5rem;
+}
+.popUp ul li:nth-of-type(4){
+	margin: 0.3rem;
+}
+.popUp ul li:nth-of-type(5) p,.know1{
+	margin-top: 0.3rem;
+	display: inline-block;
+	width: 50%;height: 1rem;
+	border-radius: 1rem;
+	border:1px solid #2765d3;
+	color:#2765d3;
+	line-height: 1rem;
+
+}
+/*添加转盘样式*/
+#turn{
+		background: url('./img/schoolActivity/zhuanpan@2x.png') no-repeat center center;
+		background-size: 100% 100%;
+		width: 6.7rem;
+		height: 6rem;
+		position: relative;
+		left: 0;
+		right: 0;
+		margin:auto;
+		display: none;
+}
+#needle{
+		width: 2rem;
+		position: absolute;
+		left: 1.9rem;
+		top: 2rem;
+		transition: all 1s linear;
+		transform-origin: 1.378rem 50%;
+		transform: rotate(82deg);
+}
+#random{
+		width: 1.2rem;
+		position: absolute;
+		left: 2.685rem;
+		top: 2.03rem;
+		z-index: 9;
+}
+
+
+/*没有中奖的弹出窗*/
+.popUpNot{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	position:fixed;
+	top: 0;
+	left: 0;
+    z-index: 100;
+}
+.popUpNot ul{
+	width: 8rem;
+	height: 9.1rem;
+	background: white;
+	margin:auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	border-radius: 0.3rem;
+}
+.popUpNot ul li:nth-of-type(1){
+	text-align: center;
+	font-size: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.popUpNot ul img{
+	width: 65%;
+	margin:0.3rem 0;
+
+}
+</style>
+<div class="wrap">
+<header>
+<img src="./img/schoolActivity/update.png" alt="">
+</header>
+
+<div class="content">
+
+	<div>
+	<h2>{{p1}}</h2>
+	<p class="hint">{{p2}}</p>
+		<div id="commonCard">
+			<p class="playCard" ui-sref="punchCard({is_reload: 1})" ui-sref-opts="{reload: true}">点我参与打卡，赢取抽奖的机会！~</p>
+			<img class='dog' src="./img/schoolActivity/dog.png" alt="">
+		</div>
+		<!-- 配对 -->
+		<div class="our" id="our">
+			<div class="myContent">
+				<i>
+					<img ng-src="{{my_thumb_photo}}" alt="">
+				</i>
+				<p class="everyname">{{my_nick_name}}</p>
+			</div>
+			<div class="youContent">
+				<i>
+					<img ng-src="{{other_thumb_photo}}" alt="">
+				</i>
+				<p class="everyname">{{other_nick_name}}</p>
+			</div>
+		</div>
+		<!--turn 转盘 -->
+		<div id="turn">
+			<img src="./img/schoolActivity/needle.png" alt="" id="needle">
+			<img src="./img/schoolActivity/kscj@2x.png" alt="" id="random">
+    	</div>
+		<div class='myInfo'>
+			<div>
+				<p>我的兑换码</p>
+				{{my_coupon}}
+			</div>
+		</div>
+	</div>
+	<p class="rule"><span>兑换规则：</span>凭此码前往活动兑奖处领取电影票1张</p>
+</div>
+
+<!-- 弹窗 -->
+<div class="popUp">
+	<ul>
+	<li>恭喜你获得电影票一张</li>
+	<li><img src="./img/schoolActivity/phone.png" alt=""></li>
+	<li>等待配对</li>
+	<li>遇见你的电影缘分吧！</li>
+	<li><p class="know">朕知道了</p></li>
+	</ul>
+</div>
+
+
+<div class="popUpNot" id="popUpNot" style="display: none">
+	<ul>
+	<li>很遗憾您没有获奖...</li>
+	<li><img src="./img/schoolActivity/notHave.png" alt=""></li>
+	<li><p class="know1">朕知道了</p></li>
+	</ul>
+</div>
+</div>

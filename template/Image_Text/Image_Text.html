@@ -1,0 +1,62 @@
+<section>
+<style type="text/css" media="screen">
+    section{
+        height: 100%;
+    }
+    #whole{
+        margin:auto;
+        position: absolute;
+        top: 13.5%;
+        left: 0;
+        right: 0;
+        width: 83.33%;
+        height:66.666%;
+        box-sizing: border-box;
+        padding: 0.53rem 0;
+        background: white;
+        border-radius: 6px;
+    }
+    #wrap{
+        width: 100%;
+        height: 100%;
+        word-break:break-word;
+        padding: 0 0.53rem;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        font-size: 0;
+    }
+    #audioImage{
+        position: absolute;
+        top: 0.53rem;
+        right: 0.53rem;
+        width: 0.93rem;
+        height: 0.93rem;
+        margin: 0;
+    }
+    img{
+        width: 100%;
+        margin: 0.2rem 0;
+    }
+    h1,h2,h2,h3,h4,h5,h6{
+        width: 85%;
+        font-size: 0.48rem;
+        color: #333333;
+        margin-bottom:0.2rem;
+        text-align: center;
+    }
+    p{
+        margin: 0.2rem 0;
+        font-size: 0.37rem !important;
+        color: #666666;
+    }
+    p span{margin: 0.2rem 0;
+        font-size: 0.37rem !important;
+        color: #666666;}
+</style>
+<div id="whole">
+    <div id="wrap" ng-bind-html="text">
+    </div>
+    <img id="audioImage" src="../img/whitedeer/openVoice.png" alt="">
+</div>
+<audio src=""></audio>
+</section>

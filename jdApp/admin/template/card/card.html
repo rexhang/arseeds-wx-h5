@@ -1,0 +1,110 @@
+<style type="text/css" media="screen">
+.rightCon ul{
+width: 96%;
+margin-top: 30px;
+margin-left: 20px;
+}
+.rightCon ul li{
+height: 280px;
+box-sizing: border-box;
+float: left !important;
+margin: 0 10px;
+margin-bottom: 30px;
+padding: 0 !important;
+background-color: #fff;
+border-radius: 4px;
+will-change: transform;
+transition: all .25s ease-out;
+}
+.rightCon ul li:hover{
+  transform: translate(0,-5px);
+  box-shadow: 0px 10px 14px 0px rgba(199, 189, 187, 0.15);
+}
+.rightCon ul li:first-child{
+  border: 1px solid #e4e4e4;
+  cursor: pointer;
+}
+.rightCon ul li:nth-of-type(1){
+text-align: center;
+color: lightgray;
+}
+.rightCon ul li:nth-of-type(1) .imgNo1{
+margin-top: 80px;
+margin-bottom: 20px;
+}
+.rightCon ul li:nth-of-type(1) img{
+width: 60px;
+line-height: 160px;
+}
+/*.rightCon ul .rightBlock{
+background: url(../img/u15.png) 0 0 no-repeat;
+}*/
+.rightCon ul .rightBlock p:nth-of-type(1){
+font-size: 0;
+}
+.rightCon ul .rightBlock p:nth-of-type(1) img{
+width: 100%;
+}
+.rightCon ul .rightBlock p{
+margin-bottom: 0;
+}
+.rightCon ul .rightBlock p:nth-of-type(2){
+line-height: 55px;
+text-align: center;
+}
+.rightCon .col-md-3,.rightCon .col-sm-3{
+padding-right: 0px;
+padding-left: 0px;
+width: 23%;
+}
+.rightCon ul .rightBlock div:after{
+display: block;
+content: ''
+clear: both;
+}
+.rightCon ul .rightBlock div button{
+width: 50%;
+height: 100%;
+border: 0;
+background-color: #fff;
+}
+.rightCon ul .rightBlock div button:nth-child(1){
+border-right: 1px solid #e4e4e4;
+border-top: 1px solid #e4e4e4;
+float: left;
+height: 40px;
+}
+.rightCon ul .rightBlock div button:nth-child(2){
+border-top: 1px solid #e4e4e4;
+float: right;
+height: 40px;
+}
+.rightCon ul .rightBlock div button img{
+width: 22px;
+height: 22px;
+}
+button[type='button']{
+  outline: none;
+}
+</style>
+<section>
+  <ul class="am-g">
+    <li class="am-u-sm-3 am-u-md-3 am-u-lg-3" ui-sref='index.newCard({id:"new"})'>
+      <div class="imgNo1">
+        <img src="./img/u115.png" alt="">
+      </div>
+      <p>添加卡片</br>用户打卡成功后展示</p>
+    </li>
+    <li class="rightBlock am-u-sm-3 am-u-md-3 am-u-lg-3" ng-repeat='item in list'>
+      <p style="text-align: center;position: relative;height: 180px;overflow: hidden" >
+      <img ng-src="{{item.sign_img_path}}" style="height: 100%;width: auto;margin: auto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;" alt="">
+      </p>
+      <p style="margin:0">{{item.sign_date}}</p>
+      <div class="">
+        <button type="button" name="button" ng-click="click(item.id)"><img src="./img/u11.png" alt=""></button>
+        <button type="button" name="button" ng-click="cler(item.id,$index)"><img src="./img/u13.png" alt=""></button>
+      </div>
+    </li>
+  </ul>
+  <p style='text-align: center' ng-if="count >= 20" ng-click="more()">查看更多</p>
+</section>

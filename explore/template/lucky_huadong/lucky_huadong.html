@@ -1,0 +1,15 @@
+<div style="height: 238px;width: 100px;"></div>
+<!--turn 转盘 -->
+<div class="turn">
+    <img src="./img/jdhuadong/choujiang/zhuanpan2.png" alt="" class="needle" id="needle">
+    <img src="./img/jdhuadong/choujiang/zhuanpan3.png" alt="" class="random" id="random" ng-click="coupon()">
+</div>
+
+<div class="modal" ng-show="modals" ng-click="err($event)">
+    <div class="suc" ng-show="modals2" ng-click="suc($event)">
+        <img src="./img/jdhuadong/modal/suc.png" width="88%">
+    </div>
+    <div class="suc" ng-show="!modals2" ng-click="err($event)">
+        <img src="./img/jdhuadong/modal/err.png" width="88%">
+    </div>
+</div>

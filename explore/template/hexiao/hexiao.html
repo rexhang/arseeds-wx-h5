@@ -1,0 +1,5 @@
+<img ng-src="{{result.coupon_img}}" style="display: block;margin: 0 auto;margin-top: 70px;" width="180" height="180">
+<div class="rex-text-center" style="font-size: 18px;color: #333;margin: 26px 0;">{{result.coupon_name}}</div>
+<div class="duibtn" ng-click="duijiang()" ng-if="result.coupon_used != 1">兑奖</div>
+<div class="duibtn dis" ng-if="result.coupon_used == 1">兑奖</div>
+

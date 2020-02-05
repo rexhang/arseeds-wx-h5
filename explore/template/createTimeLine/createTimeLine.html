@@ -1,0 +1,20 @@
+<textarea class="post_timeline" id="post_timeline" ng-model="content" placeholder="说点什么吧"></textarea>
+
+<div class="upload" ng-show="isuploadBtn">
+    <div class="transverse"></div>
+    <div class="vertical"></div>
+    <input type="file" id="timeFile" class="timeFile" accept="image/gif, image/jpeg, image/jpg, image/png">
+</div>
+
+<div class="upload-preview" ng-show="isuploadPreview">
+    <img ng-src="{{myfileUrl}}" alt="" width="94" height="94">
+</div>
+
+<div class="show rex-cf">
+    <div class="is_time rex-text-overflow" ng-bind="datetime | date:'yyyy-MM-dd h:mm:ss a'"></div>
+    <div class="is_address rex-text-overflow" id="AmapPutaddress">获取中…</div>
+</div>
+
+<img src="./img/jd/send.png" alt="" width="150" height="30" ng-click="save()" style="margin: 15px auto 0 auto;display: block;">
+
+<div id="containerCreate" style="width: 0;height: 0;"></div>

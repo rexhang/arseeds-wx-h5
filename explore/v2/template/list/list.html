@@ -1,0 +1,164 @@
+<div class="head">
+    <div class="center rex-cf">
+        <div class="left">
+            <a href="javascript:;">
+                <img src="./img/login/logo.png" alt="logo" width="50" height="50"><span>探索</span>
+            </a>
+        </div>
+        <div class="right">
+            <img ng-src="{{thumb_photo_url}}" alt="personal-logo" class="personal-logo" id="personal-logo" width="36" height="36">
+            <div class="menu">
+                <span class="triangle"></span>
+                <ul class="menu-list">
+                    <a ng-href="#setting">
+                        <li class="rex-cf">
+                            <i class="icon-setting"></i>
+                            <span>基础设置</span>
+                        </li>
+                    </a>
+                    <a href="javascript:;" ng-click="exit()">
+                        <li class="rex-cf">
+                            <i class="icon-exit"></i>
+                            <span>退出</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="list-content" class="content rex-cf">
+    <div class="add common-right">
+        <a ui-sref="edit({id: 'add'})"><img src="./img/list/tianjia.png" alt="" width="184" height="184"></a>
+        <p>
+            用户使用探索APP扫描功能，成功扫描识别图后，将展示识别结果 (图文/视频/3D)
+        </p>
+    </div>
+    <!--     <div class="item common-right">
+        <div class="menu-nav rex-cf">
+            <div class="ctrl-nav in sel">识别图</div>
+            <div class="ctrl-nav out">识别结果</div>
+        </div>
+        <div class="face face1">
+            <img src="./img/list/face1.png" alt="" width="252" height="252">
+            <div class="hover-box">
+                <p>用“探索”APP扫描识别图即可预览识别结果</p>
+            </div>
+        </div>
+        <div class="face">
+            图文音类型
+            <div class="resource">
+                <h1>第三方水电费第三方</h1><p><img src="https://rexhang.com/file_upload/files/2017-06-23-11-19-02_00c10337946e4a023dd0c3c9a74c325e.jpg" style="max-width:100%;"><br></p><p>都是放高点过分点梵蒂冈好几个激活工具回各家共和国环境滚回家滚回家滚回家回各家滚回家滚回家滚回家滚回家滚回家。</p>
+            </div>
+            <div class="music-box rex-cf">
+                <i class="icon-music"></i>
+                <span class="m_name">音频的名字</span>
+                <span class="m_timer">2分30秒</span>
+            </div>
+            视频类型
+            <div class="video">
+                <img src="./img/list/video_type.png" alt="" alt="" width="252" height="190">
+                <p class="v_name">视频名称.mp4</p>
+                <div class="infos rex-cf">
+                    <div class="v_timer">时长: 2分30秒</div>
+                    <div class="v_size">大小: 3M</div>
+                </div>
+            </div>
+        </div>
+        <div class="see-box rex-cf">
+            <i class="see_icon"></i>
+            <span class="see_num">128</span>
+            <i class="del_icon"></i>
+            <i class="edit_icon"></i>
+        </div>
+    </div>
+    <div class="item common-right">
+        <div class="menu-nav rex-cf">
+            <div class="ctrl-nav in sel">识别图</div>
+            <div class="ctrl-nav out">识别结果</div>
+        </div>
+        <div class="face face1">
+            <img src="./img/list/face1.png" alt="" width="252" height="252">
+            <div class="hover-box">
+                <p>用“探索”APP扫描识别图即可预览识别结果</p>
+            </div>
+        </div>
+        <div class="face">
+            图文音类型
+            <div class="resource">
+                <h1>第三方水电费第三方</h1><p><img src="https://rexhang.com/file_upload/files/2017-06-23-11-19-02_00c10337946e4a023dd0c3c9a74c325e.jpg" style="max-width:100%;"><br></p><p>都是放高点过分点梵蒂冈好几个激活工具回各家共和国环境滚回家滚回家滚回家回各家滚回家滚回家滚回家滚回家滚回家。</p>
+            </div>
+            <div class="music-box rex-cf">
+                <i class="icon-music"></i>
+                <span class="m_name">音频的名字</span>
+                <span class="m_timer">2分30秒</span>
+            </div>
+            视频类型
+            <div class="video">
+                <img src="./img/list/video_type.png" alt="" alt="" width="252" height="190">
+                <p class="v_name">视频名称.mp4</p>
+                <div class="infos rex-cf">
+                    <div class="v_timer">时长: 2分30秒</div>
+                    <div class="v_size">大小: 3M</div>
+                </div>
+            </div>
+        </div>
+        <div class="see-box rex-cf">
+            <i class="see_icon"></i>
+            <span class="see_num">128</span>
+            <i class="del_icon"></i>
+            <i class="edit_icon"></i>
+        </div>
+    </div> -->
+    <div class="item common-right" ng-repeat="x in listData" repeat-finish>
+        <div class="menu-nav rex-cf">
+            <div class="ctrl-nav in sel">识别图</div>
+            <div class="ctrl-nav out">识别结果</div>
+        </div>
+        <div class="face face1">
+            <img ng-src="{{x.recognition_img}}" ng-click="openPhotos(x.recognition_img)" alt="" width="252" height="252">
+            <div class="hover-box">
+                <p>用“探索”APP扫描识别图即可预览识别结果</p>
+            </div>
+        </div>
+        <div class="face">
+            <!-- 图文音类型 -->
+            <div class="resource" ng-if="x.type == 'mix'" ng-bind-html="x.result">
+                <!-- <h1>第三方水电费第三方</h1><p><img src="https://rexhang.com/file_upload/files/2017-06-23-11-19-02_00c10337946e4a023dd0c3c9a74c325e.jpg" style="max-width:100%;"><br></p><p>都是放高点过分点梵蒂冈好几个激活工具回各家共和国环境滚回家滚回家滚回家回各家滚回家滚回家滚回家滚回家滚回家。</p> -->
+            </div>
+            <div class="music-box rex-cf" ng-if="x.type == 'mix' && x.result_description.result_extend_title">
+                <i class="icon-music" ng-click="openMedia(x.result_description.audio)"></i>
+                <span class="m_name" title="{{x.result_description.result_extend_title}}">{{x.result_description.result_extend_title}}</span>
+                <span class="m_timer">{{x.result_description.result_extend_time}}</span>
+            </div>
+            <!-- 视频类型 -->
+            <div class="video" ng-if="x.type == 'video'">
+                <img ng-src="{{x.result_description.result_extend_cover}}" alt="" alt="" width="252" height="190" title="点击播放视频" ng-click="openMedia(x.trans_video)">
+                <p class="v_name" title="{{x.result_description.result_extend_title}}">{{x.result_description.result_extend_title}}</p>
+                <div class="infos rex-cf">
+                    <div class="v_timer">时长: {{x.result_description.result_extend_time}}</div>
+                    <div class="v_size">大小: {{x.result_description.result_extend_size}}M</div>
+                </div>
+            </div>
+            <div class="d3" ng-if="x.type == '3d'">
+                <p class="typeName">平台: android</p>
+                <p class="d3_name_android_name rex-text-overflow" title="{{x.android_title}}">{{x.android_title}}</p>
+                <p class="d3_name_android_size rex-text-overflow">大小: {{x.android_size}}M</p>
+                <br>
+                <p class="typeName">平台: ios</p>
+                <p class="d3_name_ios_name rex-text-overflow" title="{{x.ios_title}}">{{x.ios_title}}</p>
+                <p class="d3_name_ios_size rex-text-overflow">大小: {{x.ios_size}}M</p>
+            </div>
+        </div>
+        <div class="see-box rex-cf">
+            <i class="see_icon"></i>
+            <span class="see_num">{{x.count}}</span>
+            <i class="del_icon" ng-click="delThisItem(x.id)"></i>
+            <i class="edit_icon" ui-sref="editShowImage({id: x.id})"></i>
+        </div>
+    </div>
+</div>
+<!-- <paging></paging> -->
+
+<div style="width: 100%;height: 140px"></div>
+<!-- <div class="footer"></div> -->

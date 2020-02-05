@@ -1,0 +1,115 @@
+<link rel="stylesheet" type="text/css" href="https://interface.arseeds.com/wx_h5/explore/v2/css/rex-ui.css">
+<style type="text/css" media="screen">
+.rightCon{
+overflow: auto;
+}
+.rightCon h1{
+margin: 50px 50px 0;
+padding-bottom: 40px;
+}
+.rightCon ul{
+border-bottom: 1px solid lightgray;
+padding: 20px 0;
+}
+.rightCon ul:nth-last-of-type(1){
+padding: 20px 0;
+}
+.rightCon ul:nth-of-type(1){
+border-top: 1px solid lightgray;
+}
+.rightCon ul .headImg{
+width: 40px;
+height: 40px;
+}
+.rightCon ul li:nth-last-child(1),.rightCon ul li:nth-last-child(2){
+color: lightgray;
+}
+.ctrl-p{
+float: left !important;
+margin-left: 50px;
+width: calc(100% - 50px) !important;
+display: block;
+padding-top: 20px 0 !important;
+}
+#day1, #day2{
+width: 200px;
+height: 40px;
+line-height: 40px;
+}
+#day2{
+margin-left: 50px;
+}
+.selt{
+margin-left: 50px;
+margin-bottom: 50px;
+}
+.no-mp{
+margin: 0;
+padding: 0;
+}
+.startDate, .endDate{
+width: 200px;
+}
+.endDate{
+margin-left: 50px;
+}
+.exportBtn{
+height: 40px;
+line-height: 40px;
+padding: 0;
+padding: 0 16px;
+margin-left: 20px;
+float: left;
+}
+.am-centers{
+  text-align: center;
+  margin-top: 30px;
+}
+.mrb30{
+  margin-bottom: 30px;
+}
+</style>
+<section>
+  <h1>兑奖</h1>
+  <div class="selt am-cf">
+    <p class="no-mp am-fl startDate"><b>请选择开始日期</b></p> <p class="no-mp am-fl endDate"><b>请选择结束日期</b></p>
+    <br><br>
+    <input type="text" class="am-form-field am-fl" id="day1" ng-model="date1" placeholder="请选择开始日期" data-am-datepicker="{theme: 'success'}" readonly/>
+    <input type="text" class="am-form-field am-fl" id="day2" ng-model="date2" placeholder="请选择结束日期" data-am-datepicker="{theme: 'success'}" readonly/>
+    <button type="button" class="am-btn am-btn-success exportBtn" ng-click="export()">导出文件</button>
+  </div>
+  <ul class="am-g ctrl-p">
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">头像</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">昵称</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">礼品</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">消耗积分</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">兑换时间</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">备注</li>
+  </ul>
+  <ul class="am-g ctrl-p {{$last?'mrb30':''}}" ng-repeat="item in list">
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2"><img class="headImg" ng-src="{{item.user_photo}}" alt=""></li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">{{item.nick_name}}</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">{{item.coupons_title}}</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">{{item.coupons_need_score}}</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2">{{item.create_time}}</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2" ng-if="item.receiver_username" style="font-size:15px">姓名：{{item.receiver_username}}</br>电话：{{item.receiver_tel}}</br>地址：{{item.receiver_addr}}</li>
+    <li class="am-u-sm-2 am-u-md-2 am-u-lg-2" ng-if="!item.receiver_username" style="font-size:15px">优惠券</li>
+  </ul>
+  <div class="rex-cf paging">
+    <style scoped>
+      .paging{
+        width: 100%;
+        margin-left: 50px;
+        margin-bottom: 50px;
+      }
+      .page{
+        font-size: 1.6rem;
+        line-height: 1.2;
+        padding: .5em 1em;
+      }
+    </style>
+    <button type="button" class="am-btn am-btn-success prev rex-fl" ng-disabled="page==1" ng-click="prev(page)">上一页</button>
+    <div class="btn page rex-fl">第{{page+'/'+maxPage}}页</div>
+    <button type="button" class="am-btn am-btn-success next rex-fl" ng-disabled="page==maxPage" ng-click="next(page)">下一页</button>
+  </div>
+</section>

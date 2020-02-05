@@ -1,0 +1,163 @@
+<style media="screen">
+.rightCon ul{
+width: 96%;
+margin-top: 30px;
+margin-left: 20px;
+}
+.rightCon ul li{
+height: auto;
+margin-right: 8px;
+margin-left: 8px;
+margin-bottom: 20px;
+box-sizing: border-box;
+background-color: #fff;
+border-radius: 4px;
+will-change: transform;
+transition: all .25s ease-out;
+}
+
+.rightCon ul li:hover{
+  transform: translate(0,-5px);
+  box-shadow: 0px 10px 14px 0px rgba(199, 189, 187, 0.15);
+}
+
+.rightCon ul li:first-child{
+  border: 1px solid #e4e4e4;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.rightCon ul li:nth-of-type(1){
+text-align: center;
+color: lightgray;
+}
+.rightCon ul li:nth-of-type(1) .imgNo1{
+margin-top: 114px;
+margin-bottom: 20px;
+}
+.rightCon ul li:nth-of-type(1) img{
+width: 60px;
+line-height: 160px;
+}
+.rightCon ul .rightBlock{
+/*background: url(../img/u15.png) 0 0 no-repeat;*/
+}
+.rightCon ul .rightBlock p:nth-of-type(1){
+  font-size: 0;
+}
+.rightCon ul .rightBlock p:nth-of-type(1) img{
+  width: 100%;
+}
+.rightCon ul .rightBlock p{
+margin-bottom: 0;
+}
+.rightCon .col-md-3,.rightCon .col-sm-3{
+padding-right: 0px;
+padding-left: 0px;
+width: 23%;
+}
+.rightCon ul .rightBlock div:after{
+  display: block;
+  content: ''
+  clear: both;
+}
+.rightCon ul .rightBlock div button{
+width: 50%;
+height: 40px;
+border: 0;
+background-color: #fff;
+line-height: 28px;
+}
+.rightCon ul .rightBlock div button:nth-child(1){
+border-right: 1px solid lightgray;
+float: left;
+}
+.rightCon ul .rightBlock div button:nth-child(2){
+/*border-right: 1px solid lightgray;*/
+float: right;
+}
+.rightCon ul .rightBlock div button img{
+width: 20px;
+height: 20px;
+}
+.rightBlock div:nth-of-type(1){
+  height: 237px;
+}
+.rightBlock div:nth-of-type(1){
+  border-bottom: 1px solid lightgray;
+}
+.rightBlock div:nth-of-type(1) p:nth-of-type(2){
+  text-align: right;
+  margin-right:20px;
+}
+/*.rightBlock div:nth-of-type(1) p:nth-of-type(3){
+  margin-top: 150px;
+}*/
+.rightBlock div:nth-of-type(1) p:nth-of-type(3) span{
+  margin: 0 20px;
+}
+.rightBlock div:nth-of-type(1) p:nth-of-type(3) span:nth-of-type(1){
+  margin-right: 60px;
+}
+.rightBlock .img22 p:nth-of-type(2){
+  margin-top: 200px;
+  text-align: left;
+  margin-left:20px;
+}
+#giftTitle{
+  display: inline-block;
+  width: 145px;
+  margin-right: 0;
+  margin-left: 30px;
+  overflow:hidden;
+  white-space:nowrap;
+   text-overflow:ellipsis;
+}
+.ctrl-g li{
+  margin: 0;
+  padding: 0;
+  float: left !important;
+}
+.btns{
+  outline: 0;
+  border: 0;
+  width: 50%;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-top: 1px solid #e4e4e4;
+  border-right: 1px solid #e4e4e4;
+}
+.btns2{
+  float: right;
+  border-right: 0;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+</style>
+<section id="gft">
+  <ul class="am-g ctrl-g">
+    <li class="am-u-sm-3 am-u-md-3 am-u-lg-3" style="height: 350px;" ui-sref="index.newGift({id:'new'})">
+      <div class="imgNo1">
+        <img src="./img/u115.png" alt="">
+      </div>
+      <p>添加礼品</p>
+    </li>
+    <li class="am-u-sm-3 am-u-md-3 am-u-lg-3" style="position: relative;" ng-repeat='item in list'>
+      <div class="">
+        <p style="margin-bottom:10px;text-align: center;"><img ng-src="{{item.coupon_img_path[0]}}"  style='height: 237px;max-width: 100%' alt=""></p>
+        <p style="position: absolute;top: 0;right: 0;margin:0;display: inline-block;background-color: rgba(0,0,0,0.5);color: white;padding:4px" ng-show="item.coupon_type == 1">剩余：{{item.coupon_count}}</p>
+
+      </div>
+      <p style="width: 100%;padding: 16px;"><span id="giftTitle">{{item.coupon_title}}</span><span style="float: right;margin-right: 30px">{{item.coupon_need_score}}分</span></p>
+      <div class="">
+        <button class="btns" type="button" name="button" ng-click="click(item.id)"><img src="./img/u11.png" alt="" width="22" height="22"></button>
+        <button class="btns btns2" type="button" name="button" ng-click="cler(item.id,$index)"><img src="./img/u13.png" alt="" width="22" height="22"></button>
+      </div>
+    </li>
+  </ul>
+  <p style='text-align: center' ng-click="more()" ng-if="num>=20">查看更多</p>
+</section>

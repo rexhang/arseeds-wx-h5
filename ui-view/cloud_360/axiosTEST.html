@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+        <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+        <title>Threejs-demo</title>
+        <style>
+            *{ margin: 0; padding: 0}
+            html, body{ width: 100%; height: 100%; cursor: move; overflow: hidden;}
+        </style>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+        "use strict";
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        axios.defaults.headers.post['Accept-Language'] = "zh_CN";
+        axios.defaults.timeout = 6000;
+        (function(){
+            function getConfig() {
+                return axios.get('./position-dev.json');
+            }
+            function getOnlineData() {
+                return axios.get('./ajax.json');
+            }
+            axios.all([getConfig(), getOnlineData()])
+                .then(axios.spread(function (acct, perms) {
+                    console.log(acct.data)
+                    console.log(perms.data)
+                }));
+        })();
+    </script>
+    </body>
+</html>

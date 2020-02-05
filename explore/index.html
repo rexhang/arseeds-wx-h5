@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="exploreApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- 设定字符编码集 -->
+    <meta http-equiv="Content-Language" content="zh-Hans-CN"><!-- 大陆地区使用的简体中文 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><!-- 使用最新渲染引擎渲染网页 -->
+    <meta http-equiv="Pragma" content="no-cache"><!-- 不缓存到计算机，达到禁止脱机浏览 -->
+    <meta name="renderer" content="webkit"><!-- 如果360浏览器 使用webkit（极速）内核渲染 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"><!-- 百度转码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content=""><!-- 描述信息 -->
+    <meta name="keywords" content=""><!-- 关键词信息 -->
+    <meta name="author" content="rexhang"><!-- 作者信息 -->
+    <title data-ng-bind="__state.current.data.pageTitle">加载中……</title>
+    <script src="./ng-js/angular.min.js"></script>
+    <script src="./ng-js/angular-ui-router.min.js"></script>
+    <script src="./lib/ocLazyLoad/ocLazyLoad.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.3&key=1e84f66a8d14e1f90c1b518665ff0b82"></script>
+    <link rel="icon" sizes="192x192" href="./img/login/logo.png">
+    <link rel="stylesheet" href="./css/rex-ui.css">
+
+    <!-- page：rexhang | blog：https://rexhang.com/blog (admin@rexhang.com) | date：2017-06-15 16:38:57 | webtype：business -->
+</head>
+<body data-ng-controller="rootController" class="{{bodyclass}}">
+    <div data-ui-view id="ui-view">
+        <!-- 路由内容填充处 -->
+    </div>
+    <script src="./app.js"></script>
+    <script src="./factory.app.js"></script>
+    <script src="./webpack_build/build.js"></script>
+</body>
+</html>

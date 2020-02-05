@@ -1,0 +1,63 @@
+<div class="head">
+    <div class="center rex-cf">
+        <div class="left">
+            <a ng-href="#list">
+                <img src="./img/login/logo.png" alt="logo" width="50" height="50"><span>探索</span>
+            </a>
+        </div>
+        <div class="right">
+            <img ng-src="{{thumb_photo_url}}" alt="personal-logo" class="personal-logo" id="personal-logo" width="36" height="36">
+            <div class="menu">
+                <span class="triangle"></span>
+                <ul class="menu-list">
+                    <a ng-href="#setting">
+                        <li class="rex-cf">
+                            <i class="icon-setting"></i>
+                            <span>基础设置</span>
+                        </li>
+                    </a>
+                    <a href="javascript:;" ng-click="exit()">
+                        <li class="rex-cf">
+                            <i class="icon-exit"></i>
+                            <span>退出</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="tit">基础设置</div>
+    <div class="infos">
+        <div class="headportrait rex-cf">
+            <span>头像</span>
+            <img ng-src="{{user.thumb_photo}}" alt="uploadfileimg" id="uploadfileimg" width="120" height="120">
+            <div id="upload">
+                <input type="file" id="isfile" name="file" accept="image/gif, image/jpeg, image/jpg, image/png">
+            </div>
+        </div>
+        <div class="com-name rex-cf">
+            <span>名称</span>
+            <input type="text" name="enterprise" ng-model="user.nick_name" placeholder="请输入用户名称，最长不得超过10个字符" maxlength="10">
+        </div>
+        <div class="accountnumber rex-cf">
+            <span>账号</span>
+            <div>{{user.email}}</div>
+        </div>
+        <div class="save" ng-click="saveUserInfo()">保 存</div>
+    </div>
+    <div class="change-password">修改密码</div>
+    <div class="change-box">
+        <div class="rex-cf">
+            <input type="password" ng-model="user.password" placeholder="请输入原密码" maxlength="16">
+        </div>
+        <div class="rex-cf">
+            <input type="password" ng-model="user.newPwd" placeholder="请输入新密码, 密码由8-16位数字或字母组成，区分大小写" maxlength="16">
+        </div>
+        <div class="rex-cf">
+            <input type="password" ng-model="user.newPwdComfirm" placeholder="请再次输入新密码" maxlength="16">
+        </div>
+        <div class="save" ng-click="saveUserPassword()">确 定</div>
+    </div>
+</div>

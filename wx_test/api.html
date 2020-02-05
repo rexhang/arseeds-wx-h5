@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>微信公众号开发API测试</title>
+    <style type="text/css">
+        body{
+            -webkit-tap-highlight-color: transparent;
+        }
+        .disable-selected{
+            -moz-user-select:none;/*火狐*/
+            -webkit-user-select:none;/*webkit浏览器*/
+            -ms-user-select:none;/*IE10*/
+            -khtml-user-select:none;/*早期浏览器*/
+            user-select:none;
+        }
+        .power-btn{
+            background-color: #ff7300;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .power-btn:active{
+            opacity: 0.6;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="power-btn disable-selected" id="checkJsApi">1.查看是否支持API</div>
+    <br>
+    <div class="power-btn disable-selected" id="openLocation">2.打开指定地图地址</div>
+    <br>
+    <div class="power-btn disable-selected" id="getLocation">3.获得我当前位置的地图信息</div>
+    <br>
+    <div class="power-btn disable-selected" id="wxShare_pyq">4.分享到朋友圈</div>
+    <br>
+    <div class="power-btn disable-selected" id="wxSel_img">5.选择图片接口</div>
+    <br>
+    <div id="img-box" class="text-center hide">
+        <span>显示上传的第一张图片</span>
+        <hr>
+        <img src="" alt="" style="max-width: 100%;">
+        <br>
+    </div>
+    <div class="power-btn disable-selected" id="wxPreview_img">6.图片浏览器</div>
+    <br>
+    <div class="power-btn disable-selected" id="wxUpload_img">7.上传图片到微信服务器</div>
+    <br>
+    <div class="power-btn disable-selected" id="wxUpload_img2">7.2从微信服务器把图片取回到自己服务器</div>
+    <br>
+    <div class="power-btn disable-selected" id="wxDown_img">8.下载图片接口</div>
+    <br>
+    <div id="downIMG" class="hide">
+        <img src="" alt="" style="max-width: 100%;">
+        <br>
+    </div>
+    <div class="power-btn disable-selected" id="getNetworkType">9.获取网络状态</div>
+    <br>
+    <div class="power-btn disable-selected" id="scan">10.微信扫一扫</div>
+    <br>
+    <div class="power-btn disable-selected" id="chooseWXPay">★微信支付（需要开通商户）</div>
+
+    <div id="imc">
+        
+    </div>
+
+
+
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 对象数据字符串化
+        function _jsonToStr(res){
+            return window.JSON.stringify(res);
+        };
+        // ID选择器
+        function _selID(id){
+            return document.querySelector(id);
+        };
+
+        $.getJSON('./api.php?url='+encodeURIComponent(location.href.split('#')[0]),function(result){
+            var res = result;
+            console.log(typeof res);
+            console.log(res.timestamp, res.nonceStr, res.signature);
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: 'wx493f19f303647cfb', // 必填，公众号的唯一标识
+                timestamp: res.timestamp, // 必填，生成签名的时间戳
+                nonceStr: res.nonceStr, // 必填，生成签名的随机串
+                signature: res.signature,// 必填，签名，见附录1
+                jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo',
+                        'onMenuShareQZone',
+                        'hideMenuItems',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'showAllNonBaseMenuItem',
+                        'translateVoice',
+                        'startRecord',
+                        'stopRecord',
+                        'onVoiceRecordEnd',
+                        'playVoice',
+                        'onVoicePlayEnd',
+                        'pauseVoice',
+                        'stopVoice',
+                        'uploadVoice',
+                        'downloadVoice',
+                        'chooseImage',
+                        'previewImage',
+                        'uploadImage',
+                        'downloadImage',
+                        'getNetworkType',
+                        'openLocation',
+                        'getLocation',
+                        'hideOptionMenu',
+                        'showOptionMenu',
+                        'closeWindow',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'openProductSpecificView',
+                        'addCard',
+                        'chooseCard',
+                        'openCard'
+                      ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+                        wx.ready(function () {
+                          // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+                          _selID('#checkJsApi').onclick = function () {
+                            wx.checkJsApi({
+                              jsApiList: [
+                                'getNetworkType',
+                                'previewImage'
+                              ],
+                              success: function (res) {
+                                alert(_jsonToStr(res));
+                              }
+                            });
+                          };
+                          // 7 地理位置接口
+                          // 7.1 查看地理位置
+                          _selID('#openLocation').onclick = function () {
+                            wx.openLocation({
+                              latitude: 23.099994,
+                              longitude: 113.324520,
+                              name: 'TIT 创意园',
+                              address: '广州市海珠区新港中路 397 号',
+                              scale: 14,
+                              infoUrl: 'http://weixin.qq.com'
+                            });
+                          };
+                          // 7.2 获取当前地理位置
+                          _selID('#getLocation').onclick = function () {
+                            wx.getLocation({
+                              success: function (res) {
+                                //alert(_jsonToStr(res));
+                                // 打开当前位置地图信息
+                                wx.openLocation({
+                                  latitude: res.latitude,
+                                  longitude: res.longitude,
+                                  name: '顾航的家',
+                                  address: '顾航路11号',
+                                  scale: 16,
+                                  infoUrl: 'http://weixin.qq.com'
+                                });
+                              },
+                              cancel: function (res) {
+                                alert('用户拒绝授权获取地理位置');
+                              }
+                            });
+                          };
+
+                          // 分享到朋友圈
+                          _selID('#wxShare_pyq').onclick = function () {
+                            wx.onMenuShareTimeline({
+                                title: '微信开发测试', // 分享标题
+                                desc: '分享的描述信息显示区域', // 分享描述
+                                link: 'https://rexhang.com/blog', // 分享链接
+                                imgUrl: 'https://rexhang.com/img/rexhang.png', // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function (res) {
+                                    // 用户确认分享后执行的回调函数
+                                    alert('分享成功了诶!内容是：'+_jsonToStr(res));
+                                },
+                                cancel: function (res) {
+                                    // 用户取消分享后执行的回调函数
+                                    alert('取消分享了诶！'+_jsonToStr(res));
+                                }
+                            });
+                            alert('已注册分享到朋友圈信息');
+                          };
+                // 全局变量
+                var images = {
+                    localId: [],
+                    serverId: [],
+                    preview: []
+                };
+                var countCHOOSE = 9;
+
+                          
+                    
+                          // 串行
+                          function postData(serverIds){
+                            $.ajax({
+                                 type: 'POST',
+                                 url: './index2.php' ,
+                                data: {
+                                    serverId: serverIds,
+                                    token: '<?php echo "$token1";?>'
+                                },
+                                success: function(data, textStatus, jqXHR){
+                                    alert(textStatus);
+                                }
+                            });
+                          }
+
+                          // 获取网络状态
+                          _selID("#getNetworkType").onclick = function(){
+                            wx.getNetworkType({
+                                success: function (res) {
+                                    var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+                                    //alert(networkType);
+                                    alert(_jsonToStr(res));
+                                }
+                            });
+                          };
+
+                      });
+                        wx.error(function(res){
+                            // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                            alert(res.errMsg);
+                        });
+      });
+
+  
+        
+        
+        
+    </script>
+</body>
+</html>

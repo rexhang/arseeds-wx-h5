@@ -1,0 +1,366 @@
+{
+    "code": 200,
+    "msg": "获取数据成功",
+    "data": [
+        {
+        "id": 1,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "image",
+        "source_path": [
+        "http://interface.arseeds.com/angular/index.html?author=rexhang1#/RlPrize"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 2,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "http://interface.arseeds.com/angular/index.html?author=rexhang2#/RlPrize"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 3,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "video",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 4,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 5,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 6,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 7,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 8,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 9,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 10,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 11,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 12,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 13,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 14,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 15,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 16,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/1.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 17,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/2.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        },
+        {
+        "id": 18,
+        "img_show_type": "9",
+        "img_show_id": "22",
+        "file_key": "rl_fm_haibao_1",
+        "playing_id": "0",
+        "source_type": "url",
+        "source_path": [
+        "https://rexhang.com/video/video.mp4"
+        ],
+        "background": "assets/test/3.jpg",
+        "img_show_description": {
+        "redirect_img": "",
+        "redirect_type": "",
+        "redirect_content": ""
+        },
+        "create_time": "2017-05-27 15:24:48",
+        "update_time": "2017-05-27 15:24:48",
+        "header_image": null
+        }
+    ]
+}

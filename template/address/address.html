@@ -1,0 +1,40 @@
+<style type="text/css" media="screen">
+    li{
+        padding: 0.6rem;
+        border-bottom: 1px solid #dddddd;
+        color: #666;
+    }
+    span{
+        font-size: 0.4rem;
+    }
+    .user{
+        color: #ec0014;
+    }
+    input{
+        font-size: 0.4rem;
+        margin-left: 0.2rem;
+        width: 70%;
+        color: #666;
+    }
+    p{
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+    button{
+        width: 65%;
+        height: 1.2rem;
+        background: #ec0014;
+        color: white;
+        border-radius: 1.2rem;
+        font-size: 0.4rem;
+    }
+</style>
+<section>
+<ul>
+    <li><span style="font-size:0.45rem; ">个人信息</span>(请正确填写，以方便收到礼物)</li>
+    <li><span class="user">姓名</span> <input placeholder="请输入收货人姓名" ng-model='userName' type="text"></input></li>
+    <li><span class="user">电话</span> <input placeholder="请输入联系电话" ng-model='userPhone' type="number"></input></li>
+    <li><span class="user">地址</span> <input placeholder="请输入收货地址" ng-model='userAdderss' type="text"></input></li>
+</ul>
+<p><button ng-click="sbumit()">提交</button></p>
+</section>

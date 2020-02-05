@@ -1,0 +1,23 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.6.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot --progress --color --open --port 9527"
+  },
+  "keywords": [],
+  "author": "DaXin",
+  "license": "ISC"
+}
